@@ -1,13 +1,10 @@
 # The impact of Corona curfews on the prices of Airbnb listings in Amsterdam
 
-To whomever visits this repository, 'Hi, hope you are doing well'. 
 This is a repository for group 15 for the dprep course.
 
-We are Julia Donkers , Tayfun Ozcan, Quinten de Putter, Sam van de Ven and Jeroen Maagdenberg
+The people who are writing this are: Julia Donkers , Tayfun Ozcan, Quinten de Putter, Sam van de Ven and Jeroen Maagdenberg
 
-# Short project title
-
-__Long project title, e.g., research question__
+# 
 
 ## Motivation
 
