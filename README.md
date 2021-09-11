@@ -2,6 +2,8 @@
 
 This repository supports the research to The impact of Corona curfews on the prices of Airbnb listings in Amsterdam. The research was started as a part of the [Data Preparation and Workflow Management](https://dprep.hannesdatta.com) course of Tilburg University
 
+RESEARCH QUESTION SCHRIJVEN!
+
 # 
 
 ## Motivation
