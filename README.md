@@ -30,4 +30,4 @@ Point interested users to any related literature and/or documentation.
 
 ## About
 
-The people who have contributed to this repository are Julia Donkers, Tayfun Ozcan, Quinten de Putter, Sam van de Ven and Jeroen Maagdenberg. They are all students of the Master Marketing Analytics at Tilburg University.
+The people who have contributed to this repository are Tayfun Ozcan, Quinten de Putter, Sam van de Ven and [Jeroen Maagdenberg](github.com/jeroenmaagdenberg). They are all students of the Master Marketing Analytics at Tilburg University.
