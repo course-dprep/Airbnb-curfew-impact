@@ -9,6 +9,8 @@ This repository belongs to the research into the impact of Corona curfews on the
 
 ## Motivation
 
+*another comment by hannes*
+
 The Covid-19 pandemic has had a major impact on our society for more than eighteen months now. To reduce the spread of the virus, an intelligent lockdown was introduced in the Netherlands. Face masks were made mandatory in public areas and people had to deal with a very drastic measure: the curfew. In the Netherlands, from January 23rd to April 28th, it was made mandatory to stay indoors between 21:00 and 04:30 (from 31st of March the curfew times changed to 22:00 till 04:30). 
 
 The curfew and other covid restrictions had a massive impact on society, especially tourism:
