@@ -2,18 +2,27 @@
 
 This repository belongs to the research into the impact of Corona curfews on the prices of Airbnb listings in Amsterdam. The research is part of the [Data Preparation and Workflow Management](https://dprep.hannesdatta.com) course at Tilburg University. In this research we answer the following research question:
 
-**Did the curfew affect prices of Airbnb listings? Zoomed in on Amsterdam**
+**Did the curfew affect prices of Airbnb listings? Zooming in on Amsterdam**
 
 
 # 
 
 ## Motivation
 
-The Covid-19 pandemic has had a major impact on our society for more than one and a half years now. To reduce the spread of the virus, an intelligent lockdown was introduced; face masks were made mandatory in public areas and we also had to deal with a very drastic measure: the curfew. In the Netherlands, from January 23rd to April 28th, it was mandatory to stay indoors between 21:00 and 04:30 (from the 31st of March the curfew was delayed to 22:00). The curfew was not mandatory for people that had crucial professions such as in healthcare, supermarkets and similar industries. Nevertheless, the curfew did have a major impact on society. Amsterdam is, for example, a city that is heavily reliant on tourism. According to [Statistic Netherlands (CBS)](https://www.cbs.nl/nl-nl/longread/aanvullende-statistische-diensten/2021/toerismerekeningen-gemeente-amsterdam-2017-2019-?onepage=true), approximately 9% of the Amsterdam economy comes from tourism. Therefore, we think it would be interesting to find out what influence the curfew has had on the rental prices of the apartments in Amsterdam on the Airbnb platform. 
+The Covid-19 pandemic has had a major impact on our society for more than eighteen months now. To reduce the spread of the virus, an intelligent lockdown was introduced in the Netherlands. Face masks were made mandatory in public areas and people had to deal with a very drastic measure: the curfew. In the Netherlands, from January 23rd to April 28th, it was made mandatory to stay indoors between 21:00 and 04:30 (from 31st of March the curfew times changed to 22:00 till 04:30). 
 
-Airbnb experienced a significant loss due to the pandemic. In the first nine months of 2020, Airbnb already [lost almost 700 million dollars](https://fortune.com/2020/11/16/airbnb-ipo-initial-public-offering-coronavirus-impact/) (more than the total loss of 2019) mainly due to the effects of the coronavirus. Also, in 2020 the revenue was down 32% compared to 2019. The outcome of the research can be interesting for, for example, the income of the landlords. Since this concerns people's income, it can be determined whether landlords had more or less to spend during the curfew. In addition, we want to explore the impact on other factors, such as:
-- The neighbourhood of the Airbnb listing
-- The host status, whether they are a super host or not
+The curfew and other covid restrictions had a massive impact on society, especially tourism:
+- Airbnb lost [almost 700 million dollars](https://fortune.com/2020/11/16/airbnb-ipo-initial-public-offering-coronavirus-impact/) in the first nine months of 2020, more than the total loss of 2019.
+- Airbnb's revenue was 32% lower in 2020 than it was in 2019. 
+
+For this research project we zoom in on Amsterdam. A city that heavily reliant on tourism [CBS](https://www.cbs.nl/nl-nl/longread/aanvullende-statistische-diensten/2021/toerismerekeningen-gemeente-amsterdam-2017-2019-?onepage=true).
+
+**Why is this research interesting and important?**
+- Determining the effect of the curfew on the income of landlords.
+- Effects of the neighbourhood on the Airbnb listing.
+- Effects of the host status on the Airbnb listing.
+
+
 
 ## Method and results
 
