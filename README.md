@@ -4,6 +4,7 @@ This repository belongs to the research into the impact of Corona curfews on the
 
 **Did the curfew affect prices of Airbnb listings? Zooming in on Amsterdam**
 
+*comment by hannes*
 
 # 
 
