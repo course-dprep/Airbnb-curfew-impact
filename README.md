@@ -4,8 +4,6 @@ This repository belongs to the research into the impact of Corona curfews on the
 
 **Did the curfew affect prices of Airbnb listings? Zooming in on Amsterdam**
 
-
-
 ## Motivation
 
 The Covid-19 pandemic has had a major impact on our society for more than eighteen months now. To reduce the spread of the virus, an intelligent lockdown was introduced in the Netherlands. Face masks were made mandatory in public areas and people had to deal with a very drastic measure: the curfew. In the Netherlands, from January 23rd to April 28th, it was made mandatory to stay indoors between 21:00 and 04:30 (from 31st of March the curfew times changed to 22:00 till 04:30). 
@@ -21,13 +19,20 @@ For this research project we zoom in on Amsterdam. A city that heavily reliant o
 - Effects of the neighbourhood on the Airbnb listing.
 - Effects of the host status on the Airbnb listing.
 
-
-
 ## Method and results
 
 First, introduce and motivate your chosen method, and explain how it contributes to solving the research question/business problem.
 
 Second, summarize your results concisely. Make use of subheaders where appropriate.
+
+## Data collection and preparation
+
+The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research. First, the twelve datasets will be merged into one big dataset. After, a new dummy variable called ‘curfew’ will be created, to check whether the datapoint was or was not during the curfew. The model of this research:
+•	IV: ‘curfew’
+•	DV: ‘price’
+•	MOD: ‘host_is_superhost’ and ‘neighbourhood_cleansed’
+
+In addition, the variables from the original dataset which are not included in the research will be removed during the cleaning process to make the dataset easier to read. After all the cleaning the dataset used for this research will be named as Curfew_Amsterdam in the data_cleaning.R file, ready for conducting a study.
 
 ## Repository overview
 
