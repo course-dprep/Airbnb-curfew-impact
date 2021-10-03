@@ -2,7 +2,7 @@
 
 This repository belongs to the research into the impact of Corona curfews on the prices of Airbnb listings in Amsterdam. The research is part of the [Data Preparation and Workflow Management](https://dprep.hannesdatta.com) course at Tilburg University. In this research we answer the following research question:
 
-**Did the curfew affect prices of Airbnb listings? Zooming in on Amsterdam**
+**Did the curfew affect the prices of Airbnb listings? Zooming in on Amsterdam**
 
 ![Airbnb_Amsterdam](https://assets.deondernemer.nl/de-ondernemer/images/news_items/_960x532_crop_center-center_80_none/airbnb_amsterdam_anp.jpg?mtime=20190822123354&focal=none&tmtime=20210505210855)
 
@@ -26,7 +26,7 @@ For this research project we zoom in on Amsterdam, a city that is [heavily relia
 introduce and motivate regression analysis and explain how it contributes to solving the research question/business problem.
 
 ### Data collection and preparation
-The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research. First, the twelve datasets will be merged into one big dataset. After, a new dummy variable called ‘curfew’ will be created, to check whether the datapoint was or was not during the curfew. The model of this research:
+The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research. Firstly, the  datasets will be merged into one big dataset. Secondly, a new dummy variable called ‘curfew’ will be created, to check whether the datapoint was or was not during the curfew. The model of this research:
 - DV: ‘price’
 - IV: ‘curfew’
 - MOD: ‘host_is_superhost’ and ‘neighbourhood_cleansed’
@@ -46,9 +46,9 @@ Provide an overview of the directory structure and files.
 - Install additional packages
 
 ```
-install.packages("dplyr")
 install.packages("readr")
 install.packages("googledrive")
+install.packages("dplyr")
 install.packages("eventstudies")
 ```
 
