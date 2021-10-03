@@ -12,7 +12,7 @@ The curfew and other covid restrictions had a massive impact on society, especia
 - Airbnb lost [almost 700 million dollars](https://fortune.com/2020/11/16/airbnb-ipo-initial-public-offering-coronavirus-impact/) in the first nine months of 2020, more than the total loss of 2019.
 - Airbnb's revenue was 32% lower in 2020 than it was in 2019. 
 
-For this research project we zoom in on Amsterdam. A city that heavily reliant on tourism [CBS](https://www.cbs.nl/nl-nl/longread/aanvullende-statistische-diensten/2021/toerismerekeningen-gemeente-amsterdam-2017-2019-?onepage=true).
+For this research project we zoom in on Amsterdam, a city that is heavily reliant on tourism ([CBS](https://www.cbs.nl/nl-nl/longread/aanvullende-statistische-diensten/2021/toerismerekeningen-gemeente-amsterdam-2017-2019-?onepage=true)).
 
 **Why is this research interesting and important?**
 - Determining the effect of the curfew on the income of landlords.
@@ -25,7 +25,7 @@ First, introduce and motivate your chosen method, and explain how it contributes
 
 Second, summarize your results concisely. Make use of subheaders where appropriate.
 
-## Data collection and preparation
+### Data collection and preparation
 
 The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research. First, the twelve datasets will be merged into one big dataset. After, a new dummy variable called ‘curfew’ will be created, to check whether the datapoint was or was not during the curfew. The model of this research:
 •	IV: ‘curfew’
