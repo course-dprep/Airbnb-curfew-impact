@@ -4,7 +4,6 @@ library(readr)
 library(googledrive)
 
 # --- Download data --- #
-
 files = list('https://drive.google.com/file/d/1tDtmLxH6XwlTu9svStQRzk7ccEjwA9l9/view?usp=sharing',
              'https://drive.google.com/file/d/1-nS3tzFpoHdsCZH9wHFcjP9o-_dxKpJE/view?usp=sharing',
              'https://drive.google.com/file/d/1OiGuMc2NlmMqnIUfwSxPK8ro6tDvhPee/view?usp=sharing',
@@ -18,28 +17,8 @@ files = list('https://drive.google.com/file/d/1tDtmLxH6XwlTu9svStQRzk7ccEjwA9l9/
              'https://drive.google.com/file/d/1HAv7ibe01Lm-2D1l5A0Uzh9w_JaHqJmx/view?usp=sharing',
              'https://drive.google.com/file/d/1MYQR3pe68ZsnDHqtPmgsClbJAhxyntTP/view?usp=sharing',
              'https://drive.google.com/file/d/1xRa3NPLvkWR1RggqGe6KsuYn6BKZNB80/view?usp=sharing')
+
 for(f in files) {
-  cat(
-    paste0(
-      'downloading file: ',
-      f ,
-      ...\n'))
+  cat(paste0('downloading file: ', f )) 
+  drive_download(file = f, overwrite = TRUE)
 }
-
-drive_downaload(file = f, overwrite = TRUE)
-
-}
-
-
-
-
-
-
-data_id <- "https://drive.google.com/file/d/15q_h7kxCjSudjmHpXU-mDYQnBHujIIbF/view?usp=sharing"
-out_file <- "data/DataAirbnb.RData"  
-drive_download(
-  as_id(data_id), 
-  path = out_file, 
-  overwrite = TRUE)
-
-CurfewData <- load("data/DataAirbnb.RData")
