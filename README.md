@@ -62,4 +62,4 @@ Point interested users to any related literature and/or documentation.
 
 This is the repository for the course [Data Preparation and Workflow Management](https://dprep.hannesdatta.com), team project (team 15).
 
-The people who have contributed to this repository are [Tayfun Ozcan](https://github.com/tayfunozcan), [Quinten de Putter](https://github.com/QuintendePutter), Sam van de Ven and [Jeroen Maagdenberg](https://github.com/jeroenmaagdenberg). They are all students of the Master Marketing Analytics at Tilburg University.
+The people who have contributed to this repository are [Tayfun Ozcan](https://github.com/tayfunozcan), [Quinten de Putter](https://github.com/QuintendePutter), [Sam van de Ven](https://github.com/SamvdVen) and [Jeroen Maagdenberg](https://github.com/jeroenmaagdenberg). They are all students of the Master Marketing Analytics at Tilburg University.
