@@ -25,8 +25,8 @@ aug2021 <- read_csv("Data/period_aug2021.csv")
 # Variabes needed: id, last_scraped, price, host_is_superhost, neighbourhood
 
 
-View(Aug2020)
-Aug2020 %>% filter(host_id == 3159)
+
+datacompl %>% filter(host_id == 3159)
 
 
 
@@ -64,4 +64,12 @@ rm(aug2020, sep2020, oct2020, nov2020, dec2020, jan2021,
    feb2021, mar2021, apr2021, may2021, jun2021, jul2021, aug2021)
 
 
-#grouping id together 
+#grouping id together using arrange function
+datacompl <- arrange(datacompl, id)
+
+#changing name last_scraped & setting it to Data
+
+colnames(datacompl)[which(colnames(datacompl)=='last_scraped')] <- 'date'
+datacompl$date = as.Date(datacompl$date)
+
+#adding dummy variable Curfew
