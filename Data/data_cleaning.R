@@ -1,10 +1,8 @@
 # --- Load Libraries --- #
 
 library(dplyr)
-getwd()
-# --- Cleaning data --- #
 
-#Getting data in R, 
+# --- Load data in R Environment --- #
 
 aug2020 <- read_csv("Data/period_aug2020.csv")
 sep2020 <- read_csv("Data/period_sep2020.csv")
@@ -26,13 +24,13 @@ aug2021 <- read_csv("Data/period_aug2021.csv")
 
 
 
-datacompl %>% filter(host_id == 3159)
+datacompl %>% filter(host_id == 3159) ######## not sure what this does @quinten ???????????
 
 
 
 ## Selecting relevant columns, getting rid of others and get rid of missing values. 
 
-cols_to_keep = c('id', 'last_scraped', 'host_id', 'host_is_superhost', 'neighbourhood',
+cols_to_keep = c('id', 'last_scraped', 'host_id', 'host_is_superhost',
                  'neighbourhood_cleansed', 'price')
 
 
@@ -67,9 +65,10 @@ rm(aug2020, sep2020, oct2020, nov2020, dec2020, jan2021,
 #grouping id together using arrange function
 datacompl <- arrange(datacompl, id)
 
-#changing name last_scraped & setting it to Data
+#changing name 'last_scraped' & setting it to 'Date'
 
 colnames(datacompl)[which(colnames(datacompl)=='last_scraped')] <- 'date'
 datacompl$date = as.Date(datacompl$date)
 
 #adding dummy variable Curfew
+##### work in progress
