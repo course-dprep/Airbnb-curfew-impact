@@ -1,9 +1,9 @@
 # --- Load Libraries --- #
 
-library(readr); library(googledrive); library(haven); library(tidyverse); library(dplyr)
+library(readr)
+library(googledrive)
 
-
-## Create Directory
+# --- Create Directory --- #
 
 dir.create(("data"), showWarnings = FALSE) #creating folder on local machine
 
