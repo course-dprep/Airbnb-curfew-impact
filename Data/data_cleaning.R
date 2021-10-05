@@ -74,6 +74,6 @@ datacompl$date = as.Date(datacompl$date)
 #adding dummy variable Curfew
 ##### work in progress
 
-datacompl$dummy <- ifelse(datacompl$date > as.Date("2021/01/23", format = "%Y/%m/%d") &
+datacompl$curfew <- ifelse(datacompl$date > as.Date("2021/01/23", format = "%Y/%m/%d") &
                       datacompl$date < as.Date("2021/04/28", format = "%Y/%m/%d"), 1, 0)
 
