@@ -3,8 +3,19 @@
 library(readr)
 library(dplyr)
 library(stringr)
+library(data.table)
+library(stargazer)
 
 # --- Load data in R Environment --- #
+
+files = list.files('Data', pattern='csv', full.names=T)
+
+# (excursion to data.table)
+tmp <- lapply(files, fread)
+all_data <- rbindlist(tmp)
+
+# convert back to tidyr
+all_data <- tibble(all_data)
 
 aug2020 <- read_csv("Data/period_aug2020.csv")
 sep2020 <- read_csv("Data/period_sep2020.csv")
@@ -71,7 +82,7 @@ datacompl$date = as.Date(datacompl$date)
 datacompl$curfew <- ifelse(datacompl$date > as.Date("2021/01/23", format = "%Y/%m/%d") &
                       datacompl$date < as.Date("2021/04/28", format = "%Y/%m/%d"), 1, 0)
 
-#### dummy for neighbourhoods
+#### create a dummy for neighbourhoods
 
 table(datacompl$neighbourhood_cleansed)
 
@@ -104,4 +115,12 @@ datacompl$nbh_Zuid <- ifelse(datacompl$neighbourhood_cleansed == "Zuid", 1, 0)
 str_replace(data2$price, '$', '')
 datacompl <- parse_number(datacompl$price)
 datacompl$price = as.numeric(gsub("\\$", "", datacompl$price)) 
+
+#### linear regression models
+
+m1 <- lm(price ~ 1 + curfew + host_is_superhost, data = datacompl)
+m2 <- lm(price ~ 1 + curfew + host_is_superhost + as.factor(neighbourhood_cleansed) , data = datacompl)
+
+stargazer(m1,m2, type='text')
+
 
