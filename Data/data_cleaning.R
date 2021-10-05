@@ -23,17 +23,10 @@ aug2021 <- read_csv("Data/period_aug2021.csv")
 # clean out datasheets first, merge afterwards 
 # Variabes needed: id, last_scraped, price, host_is_superhost, neighbourhood
 
-
-
-datacompl %>% filter(host_id == 3159) ######## not sure what this does @quinten ???????????
-
-
-
 ## Selecting relevant columns, getting rid of others and get rid of missing values. 
 
 cols_to_keep = c('id', 'last_scraped', 'host_id', 'host_is_superhost',
                  'neighbourhood_cleansed', 'price')
-
 
 aug2020 <- na.omit(aug2020[, which(colnames(aug2020)%in%cols_to_keep)])
 sep2020 <- na.omit(sep2020[, which(colnames(sep2020)%in%cols_to_keep)])
@@ -77,3 +70,30 @@ datacompl$date = as.Date(datacompl$date)
 datacompl$curfew <- ifelse(datacompl$date > as.Date("2021/01/23", format = "%Y/%m/%d") &
                       datacompl$date < as.Date("2021/04/28", format = "%Y/%m/%d"), 1, 0)
 
+#### dummy for neighbourhoods
+
+table(datacompl$neighbourhood_cleansed)
+
+#Bijlmer-centrum is base value
+
+datacompl$nbh_BijlmerOost <- ifelse(datacompl$neighbourhood_cleansed == "Bijlmer-Oost", 1, 0)
+datacompl$nbh_BosLommer <- ifelse(datacompl$neighbourhood_cleansed == "Bos en Lommer", 1, 0)
+datacompl$nbh_Buitenveldert <- ifelse(datacompl$neighbourhood_cleansed == "Buitenveldert - Zuidas", 1, 0)
+datacompl$nbh_CentrumOost <- ifelse(datacompl$neighbourhood_cleansed == "Centrum-Oost", 1, 0)
+datacompl$nbh_CentrumWest <- ifelse(datacompl$neighbourhood_cleansed == "Centrum-West", 1, 0)
+datacompl$nbh_DeAker <- ifelse(datacompl$neighbourhood_cleansed == "De Aker - Nieuw Sloten", 1, 0)
+datacompl$nbh_Baarsjes <- ifelse(datacompl$neighbourhood_cleansed == "De Baarsjes - Oud-West", 1, 0)
+datacompl$nbh_DePijp <- ifelse(datacompl$neighbourhood_cleansed == "De Pijp - Rivierenbuurt", 1, 0)
+datacompl$nbh_Gaasperdam <- ifelse(datacompl$neighbourhood_cleansed == "Gaasperdam - Driemond", 1, 0)
+datacompl$nbh_Geuzenveld <- ifelse(datacompl$neighbourhood_cleansed == "Geuzenveld - Slotermeer", 1, 0)
+datacompl$nbh_IJburg <- ifelse(datacompl$neighbourhood_cleansed == "IJburg - Zeeburgereiland", 1, 0)
+datacompl$nbh_NoordOost <- ifelse(datacompl$neighbourhood_cleansed == "Noord-Oost", 1, 0)
+datacompl$nbh_NoordWest <- ifelse(datacompl$neighbourhood_cleansed == "Noord-West", 1, 0)
+datacompl$nbh_OostHavengebied <- ifelse(datacompl$neighbourhood_cleansed == "Oostelijk Havengebied - Indische Buurt", 1, 0)
+datacompl$nbh_Osdorp <- ifelse(datacompl$neighbourhood_cleansed == "Osdorp", 1, 0)
+datacompl$nbh_OudNoord <- ifelse(datacompl$neighbourhood_cleansed == "Oud-Noord", 1, 0)
+datacompl$nbh_OudOost <- ifelse(datacompl$neighbourhood_cleansed == "Oud-Oost", 1, 0)
+datacompl$nbh_Slotervaart <- ifelse(datacompl$neighbourhood_cleansed == "Slotervaart", 1, 0)
+datacompl$nbh_Watergraafsmeer <- ifelse(datacompl$neighbourhood_cleansed == "Watergraafsmeer", 1, 0)
+datacompl$nbh_Westerpark <- ifelse(datacompl$neighbourhood_cleansed == "Westerpark", 1, 0)
+datacompl$nbh_Zuid <- ifelse(datacompl$neighbourhood_cleansed == "Zuid", 1, 0)
