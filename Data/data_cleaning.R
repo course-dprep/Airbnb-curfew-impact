@@ -1,5 +1,6 @@
 # --- Load Libraries --- #
 
+library(readr)
 library(dplyr)
 
 # --- Load data in R Environment --- #
