@@ -2,6 +2,7 @@
 
 library(readr)
 library(dplyr)
+library(stringr)
 
 # --- Load data in R Environment --- #
 
@@ -97,3 +98,10 @@ datacompl$nbh_Slotervaart <- ifelse(datacompl$neighbourhood_cleansed == "Sloterv
 datacompl$nbh_Watergraafsmeer <- ifelse(datacompl$neighbourhood_cleansed == "Watergraafsmeer", 1, 0)
 datacompl$nbh_Westerpark <- ifelse(datacompl$neighbourhood_cleansed == "Westerpark", 1, 0)
 datacompl$nbh_Zuid <- ifelse(datacompl$neighbourhood_cleansed == "Zuid", 1, 0)
+
+#getting rid of price = 0
+
+str_replace(data2$price, '$', '')
+datacompl <- parse_number(datacompl$price)
+datacompl$price = as.numeric(gsub("\\$", "", datacompl$price)) 
+
