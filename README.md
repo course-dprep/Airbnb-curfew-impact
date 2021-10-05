@@ -49,7 +49,9 @@ Provide an overview of the directory structure and files.
 install.packages("readr")
 install.packages("googledrive")
 install.packages("dplyr")
-install.packages("eventstudies")
+install.packages(“data.table)
+install.packages(“stargazer”)
+install.packages(“modelsummary”)
 ```
 
 Explain to potential users how to run/replicate your workflow. Touch upon, if necessary, the required input data, which (secret) credentials are required (and how to obtain them), which software tools are needed to run the workflow (including links to the installation instructions), and how to run the workflow. Make use of subheaders where appropriate.
