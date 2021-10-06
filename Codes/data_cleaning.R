@@ -61,5 +61,6 @@ datacompl$curfew_21_00 <- ifelse( datacompl$date > as.Date("2021/01/23", format 
 datacompl$curfew_22_00 <- ifelse( datacompl$date > as.Date("2021/03/31", format = "%Y/%m/%d") &
                                 datacompl$date < as.Date("2021/04/28", format = "%Y/%m/%d"), 1, 0)   #shorter curfew from 22:00 till 04:30
 
-
-write.csv(datacompl, "data/datacompl.csv", row.names = FALSE)
+Curfew_Amsterdam <- datacompl
+rm(datacompl)
+write.csv(Curfew_Amsterdam, "data/Curfew_Amsterdam.csv", row.names = FALSE)
