@@ -27,7 +27,7 @@ introduce and motivate regression analysis and explain how it contributes to sol
 
 ### Data collection and preparation
 The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research:
-- Merging the thirteen datasets into one big dataset
+- Merging the datasets into one aggregated dataset
 - Deleting columns that are abundant for this research project
 - Getting rid of missing values
 - Setting variables to the correct type
