@@ -6,8 +6,7 @@ library(googledrive)
 dir.create(("data"), showWarnings = FALSE) #creating folder on local machine
 
 # --- Download data --- #
-downloads <-
-  list(
+downloads <- list(
     c(id = "1tDtmLxH6XwlTu9svStQRzk7ccEjwA9l9", period = 'aug2020'),
     c(id = "1-nS3tzFpoHdsCZH9wHFcjP9o-_dxKpJE", period = 'sep2020'),
     c(id = "1OiGuMc2NlmMqnIUfwSxPK8ro6tDvhPee", period = 'oct2020'),
@@ -20,15 +19,8 @@ downloads <-
     c(id = "1MKF3vQq9B-a3Aa9rbKIxcApOTw13rqIi", period = 'may2021'),
     c(id = "1HAv7ibe01Lm-2D1l5A0Uzh9w_JaHqJmx", period = 'jun2021'),
     c(id = "1MYQR3pe68ZsnDHqtPmgsClbJAhxyntTP", period = 'jul2021'),
-    c(id = "1xRa3NPLvkWR1RggqGe6KsuYn6BKZNB80", period = 'aug2021')
-  )
+    c(id = "1xRa3NPLvkWR1RggqGe6KsuYn6BKZNB80", period = 'aug2021'))
 
-for (file in downloads) {
-  drive_download(
-    as_id(file['id']),
-    path = paste0('data/period_', file['period'], '.csv'),
-    overwrite = TRUE
-  )
-}
+for (file in downloads) {drive_download(as_id(file['id']),path = paste0('data/period_', file['period'], '.csv'),overwrite = TRUE)}
 
 #Data stored in Data folder when this code runs 
