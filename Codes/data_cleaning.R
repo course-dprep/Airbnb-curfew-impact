@@ -37,7 +37,7 @@ datacompl$date = as.Date(datacompl$date)
 datacompl$price = as.numeric(gsub("\\$", "", datacompl$price))
 datacompl <- datacompl %>% filter(price > 0)
 
-# --- Rename neighbourhood_cleansed and storing it as factor --- #
+# --- Rename 'neighbourhood_cleansed' to 'neighbourhood' and storing it as factor --- #
 datacompl <- rename(datacompl, neighbourhood = neighbourhood_cleansed)
 datacompl$neighbourhood <- as.factor(datacompl$neighbourhood)
 
@@ -55,10 +55,10 @@ datacompl$curfew <- ifelse( datacompl$date > as.Date("2021/01/23", format = "%Y/
                               datacompl$date < as.Date("2021/04/28", format = "%Y/%m/%d"), 1, 0)
 
 # --- Create dummy variable for type of curfew (from 21:00 or from 22:00) --- #
-datacompl$curfew_21_00 <- ifelse( datacompl$date > as.Date("2021/01/23", format = "%Y/%m/%d") &
+datacompl$curfew_2100 <- ifelse( datacompl$date > as.Date("2021/01/23", format = "%Y/%m/%d") &
                                 datacompl$date < as.Date("2021/03/31", format = "%Y/%m/%d"), 1, 0)   #original curfew from 21:00 till 04:30
 
-datacompl$curfew_22_00 <- ifelse( datacompl$date > as.Date("2021/03/31", format = "%Y/%m/%d") &
+datacompl$curfew_2200 <- ifelse( datacompl$date > as.Date("2021/03/31", format = "%Y/%m/%d") &
                                 datacompl$date < as.Date("2021/04/28", format = "%Y/%m/%d"), 1, 0)   #shorter curfew from 22:00 till 04:30
 
 Curfew_Amsterdam <- datacompl
