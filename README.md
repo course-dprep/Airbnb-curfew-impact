@@ -26,12 +26,19 @@ For this research project we zoom in on Amsterdam, a city that is [heavily relia
 introduce and motivate regression analysis and explain how it contributes to solving the research question/business problem.
 
 ### Data collection and preparation
-The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research. Firstly, the  datasets will be merged into one big dataset. Secondly, a new dummy variable called ‘curfew’ will be created, to check whether the datapoint was or was not during the curfew. The model of this research:
+The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research:
+- Merging the datasets into one aggregated dataset
+- Deleting columns that are abundant for this research project
+- Getting rid of missing values
+- Setting variables to the correct type
+- Creating dummy variables for the curfew times, to check whether the datapoint was or was not during the curfew period
+
+After all the cleaning and creating the dummy variables the dataset used for this research will be named as Curfew_Amsterdam in the data file, ready for conducting a study.
+
+The model of this research:
 - DV: ‘price’
 - IV: ‘curfew’
 - MOD: ‘host_is_superhost’ and ‘neighbourhood_cleansed’
-
-In addition, the variables from the original dataset which are not included in the research will be removed during the cleaning process to make the dataset easier to read. After all the cleaning the dataset used for this research will be named as Curfew_Amsterdam in the data_cleaning.R file, ready for conducting a study.
 
 ### Results
 Summarize your results concisely.
