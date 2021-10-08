@@ -19,6 +19,26 @@ Curfew_Amsterdam <- read_csv("./data/Curfew_Amsterdam.csv")
 Curfew_Amsterdam <- read_csv("./data/datacompl.csv") # take this one out when github has been updated 
 
 
+# --- Draft graphs --- #
+
+#Development of the mean price of a room in Amsterdam over the 13 month period
+#grouping data together per month first 
+Curfew_Amsterdam$date <- format(Curfew_Amsterdam$date, "%Y/%m")
+
+ggplot(data, aes(date, price, group = "date")) + geom_smooth() #works
+
+Curfew_Amsterdam %>% 
+  ggplot(aes(x = date, y = price, group = "date")) + 
+  geom_smooth(color = 'black', se = FALSE)
+  labs(x = "Date in months", y = "Price ($)") +
+  ggtitle("Figure 1: Airbnb Listing Prices in Amsterdam from August 2020 till August 2021")
+
+ggplot(data, aes(date, price, group = "neighbourhood")) + geom_smooth() #works
+
+#Development of the mean price of a room in Amsterdam superhost or not
+
+#Development of the price in different neighbourhoods
+
 # --- Linear Regression models --- #
 
 # --- Checking effect curfew and smaller curfew window --- #
