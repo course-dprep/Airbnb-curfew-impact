@@ -53,7 +53,9 @@ Curfew_Amsterdam_plots %>%
 
 #Development of the price in different neighbourhoods --> one graph preferred 
 
-
+Curfew_Amsterdam_plots %>% 
+  ggplot(aes(x = date, y = price, group = neighbourhood, color = neighbourhood)) + #not sure about this graph in particular, looks messy
+  geom_smooth(se = FALSE) 
 
 
 # --- Linear Regression models --- #
