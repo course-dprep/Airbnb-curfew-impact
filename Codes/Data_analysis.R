@@ -24,20 +24,25 @@ Curfew_Amsterdam <- read_csv("./data/datacompl.csv") # take this one out when gi
 # --- Draft graphs --- #
 
 #Development of the mean price of a room in Amsterdam over the 13 month period
-#grouping data together per month first 
-Curfew_Amsterdam$date <- format(Curfew_Amsterdam$date, "%Y/%m")
+#grouping data together per month
+Curfew_Amsterdam_plots <- Curfew_Amsterdam
+Curfew_Amsterdam_plots$date <- format(Curfew_Amsterdam_plots$date, "%Y/%m")
 
-ggplot(data, aes(date, price, group = "date")) + geom_smooth() #works
+ggplot(data, aes(date, price, group = "date")) + geom_smooth() #works -- remove
 
-Curfew_Amsterdam %>% 
+Curfew_Amsterdam_plots %>% 
   ggplot(aes(x = date, y = price, group = "date")) + 
-  geom_smooth(color = 'black', se = FALSE)
+  geom_smooth(color = 'black', se = FALSE) +
   labs(x = "Date in months", y = "Price ($)") +
-  ggtitle("Figure 1: Airbnb Listing Prices in Amsterdam from August 2020 till August 2021")
+  ggtitle("Figure 1: Airbnb Listing Prices in Amsterdam from August 2020 till August 2021") #how to adjust 7_scale without messing up graph
 
-ggplot(data, aes(date, price, group = "neighbourhood")) + geom_smooth() #works
+#! graph needs to be adjusted on the y axis, change x axis dates to month written --> Aug 2020, Sep 2020
 
 #Development of the mean price of a room in Amsterdam superhost or not
+
+
+
+
 
 #Development of the price in different neighbourhoods
 
