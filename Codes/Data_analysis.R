@@ -28,7 +28,7 @@ Curfew_Amsterdam <- read_csv("./data/datacompl.csv") # take this one out when gi
 Curfew_Amsterdam_plots <- Curfew_Amsterdam
 Curfew_Amsterdam_plots$date <- format(Curfew_Amsterdam_plots$date, "%Y/%m")
 
-ggplot(data, aes(date, price, group = "date")) + geom_smooth() #works -- remove
+ggplot(data, aes(date, price, group = "date")) + geom_smooth() #does not work -- remove
 
 Curfew_Amsterdam_plots %>% 
   ggplot(aes(x = date, y = price, group = "date")) + 
@@ -69,11 +69,7 @@ table_m1_m2_m3 <- msummary(list(m1, m2, m3))
 table_m1_m2_m3
 
 # Checking model assumptions
-autoplot(
-  m3,
-  which = 1:3,
-  nrow = 1,
-  ncol = 3)
+autoplot(m3,which = 1:3,nrow = 1,ncol = 3)
 
 #fig1 data points should center around the horizontal axis
 #fig2 second requirement is that the residuals are approximately normally distributed
