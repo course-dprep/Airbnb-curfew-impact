@@ -45,12 +45,12 @@ Summarize your results concisely.
 
 ## Repository overview
 
-Provide an overview of the directory structure and files.
+The repository consists of a Codes folder and Docs folder, followed by the gitignore file and the R project file. 
 
 ## Running instructions
 
 - Install [RStudio and R](https://tilburgsciencehub.com/get/r)
-- Install additional packages
+- In R, install additional packages by copy/pasting and running the following lines in an R script:
 
 ```
 install.packages("readr")
@@ -60,6 +60,7 @@ install.packages(“data.table)
 install.packages(“stargazer”)
 install.packages(“modelsummary”)
 ```
+- The data will be downloaded from Google Drive by running the 'data_download.R' script. To access these data files, you are only required to have a Google Drive account.
 
 Explain to potential users how to run/replicate your workflow. Touch upon, if necessary, the required input data, which (secret) credentials are required (and how to obtain them), which software tools are needed to run the workflow (including links to the installation instructions), and how to run the workflow. Make use of subheaders where appropriate.
 
