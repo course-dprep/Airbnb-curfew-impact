@@ -48,7 +48,7 @@ Curfew_Amsterdam_plots %>%
   labs(x = "Date", y = "Price ($)") +
   ggtitle("Figure 2: Airbnbn Listing Prices for Superhost and Normal Hosts") +
   theme_bw() +
-  scale_color_manual(values = c("green", "orange")) #change title here but got error message 
+  scale_color_manual(values = c("green", "orange")) #change title here but ran into an error message 
 
 
 #Development of the price in different neighbourhoods --> one graph preferred 
