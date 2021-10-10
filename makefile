@@ -1,10 +1,18 @@
-Curfew_Amsterdam.csv: data_cleaning.R
-		R --vanilla <data_cleaning.R ### works after changing terminal to codes folder
+all: src/data_analysis/data_analysis.R src/data_prep/data_cleaning.R src/data_prep/dummy_creation.R src/data_analysis/data_analysis.R
+
+##sub-builds
+		
+src/data_download/data_download.R: src/data_download/data_download.R
+		R --vanilla < src/data_download/data_download.R
+
+gen/temp/datacompl.csv: src/data_prep/data_cleaning.R
+		R --vanilla < src/data_prep/data_cleaning.R
+
+gen/data_prep/output/Curfew_Amsterdam.csv: src/data_prep/dummy_creation.R
+		R --vanilla < src/data_prep/dummy_creation.R
 
 
-period_aug2020.csv period_sep2020.csv period_oct2020.csv period_nov2020.csv period_dec2020.csv period_jan2021.csv period_feb2021.csv period_mar2021.csv period_apr2021.csv period_may2021.csv period_jun2021.csv period_jul2021.csv period_aug2021.csv: data_download.R
-		R --vanilla < data_download.R
-		
-downloads: data_download.R
-		R --vanilla < data_download.R
-		
+gen/paper/output/test_output.pdf: src/data_analysis/data_analysis.R
+		R --vanilla < src/data_analysis/data_analysis.R
+
+# makefile works but you need to have the data downloaded. 

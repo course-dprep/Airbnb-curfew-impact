@@ -23,6 +23,7 @@ cols_to_keep = c('id', 'last_scraped', 'host_id', 'host_is_superhost','neighbour
 datacompl <- na.omit(all_data[, which(colnames(all_data)%in%cols_to_keep)]) %>% filter(all_data$host_is_superhost != "")
 
 # --- Group id together using arrange function --- #
+
 datacompl <- arrange(datacompl, id)
 
 rm(all_data,tmp, cols_to_keep, files) ### clean environment

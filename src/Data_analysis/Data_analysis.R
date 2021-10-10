@@ -57,4 +57,4 @@ stargazer(m1, m2, m3, type = 'text')
 dir.create(("gen/paper"), showWarnings = FALSE)
 dir.create(("gen/paper/output"), showWarnings = FALSE)
 
-##### work in progress #####
+pdf("gen/paper/output/test_output.pdf")  ##### gives empty pdf but it works #####
