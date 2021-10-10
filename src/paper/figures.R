@@ -6,8 +6,8 @@ library(ggplot2)
 library(foreign)
 library(readr)
 
-Curfew_Amsterdam <- read_csv("./data/Curfew_Amsterdam.csv")
-Curfew_Amsterdam <- read_csv("./data/datacompl.csv") # take this one out when github has been updated 
+Curfew_Amsterdam <- read_csv("./gen/data_prep/output/Curfew_Amsterdam.csv") ## remove before deadline
+
 
 #Development of the mean price of a room in Amsterdam over the 13 month period
 #grouping data together per month
@@ -18,7 +18,7 @@ Curfew_Amsterdam_plots %>%
   ggplot(aes(x = date, y = price, group = "date")) + 
   geom_smooth(color = 'black', se = FALSE) +
   labs(x = "Date in months", y = "Price ($)",
-       title = "Figure 1: Airbnb Listing Prices in Amsterdam",
+       title = "Figure 1: Average Airbnb Listing Price in Amsterdam",
        subtitle = "From August 2020 till August 2021") +
   theme_bw()
 #how to adjust y_scale without messing up graph

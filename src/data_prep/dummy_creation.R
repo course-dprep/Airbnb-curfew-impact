@@ -4,7 +4,7 @@ library(dplyr)
 library(stringr)
 
 #dataset
-datacompl <- read_csv("./data/datacompl.csv")
+datacompl <- read_csv("./gen/temp/datacompl.csv")
 
 # --- Create dummy variable for curfew (1 = curfew 0 = no curfew) --- #
 datacompl$curfew <- ifelse( datacompl$date > as.Date("2021/01/23", format = "%Y/%m/%d") &
@@ -21,5 +21,6 @@ Curfew_Amsterdam <- datacompl
 rm(datacompl)
 
 # --- Store as csv file --- #
-
-write.csv(Curfew_Amsterdam, "data/Curfew_Amsterdam.csv", row.names = FALSE)
+dir.create(("gen/data_prep"), showWarnings = FALSE)
+dir.create(("gen/data_prep/output"), showWarnings = FALSE)
+write.csv(Curfew_Amsterdam, "gen/data_prep/output/Curfew_Amsterdam.csv", row.names = FALSE) #gen/data_prep/output is final data output file

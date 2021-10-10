@@ -10,15 +10,15 @@ library(stargazer)
 library(modelsummary)
 
 # --- loading curfew data ---#
-Curfew_Amsterdam <- read_csv("./data/Curfew_Amsterdam.csv")
+Curfew_Amsterdam <- read_csv("./gen/data_prep/output/Curfew_Amsterdam.csv")
 
 # --- Linear Regression models --- #
 
 # --- Checking effect curfew and smaller curfew window --- #
 m1 <- lm(price ~ 1 + curfew + host_is_superhost, data = Curfew_Amsterdam)
-m2 <- lm(price ~ 1 + curfew21_00 + curfew22_00 + host_is_superhost, data = Curfew_Amsterdam)
-m3 <- lm(price ~ 1 + curfew21_00 + curfew22_00 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
-m4 <- lm(price ~ 1 + curfew + curfew22_00 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam) #this one or m3?
+m2 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
+m3 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
+m4 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam) #this one or m3?
 
 table_m1_m2_m3 <- msummary(list(m1, m2, m3))
 table_m1_m2_m3
@@ -35,7 +35,7 @@ autoplot(m3,which = 1:3,nrow = 1,ncol = 3)
 
 pot_outliers <- m3 %>%
   augment() %>%
-  select(price, curfew21_00, curfew22_00, host_is_superhost, neighbourhood, leverage = .hat, cooks_dist = .cooksd) %>%
+  select(price, curfew_2100, curfew_2200, host_is_superhost, neighbourhood, leverage = .hat, cooks_dist = .cooksd) %>%
   arrange(desc(cooks_dist)) %>%
   head()
 pot_outliers
@@ -52,3 +52,9 @@ stargazer(m1, m2, m3,
           type = 'text') #update after asking Hannes about which model we need to use.
 
 stargazer(m1, m2, m3, type = 'text')  
+
+# store output
+dir.create(("gen/paper"), showWarnings = FALSE)
+dir.create(("gen/paper/output"), showWarnings = FALSE)
+
+##### work in progress #####

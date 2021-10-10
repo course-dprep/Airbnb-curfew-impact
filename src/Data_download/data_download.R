@@ -23,4 +23,4 @@ downloads <- list(
 
 for (file in downloads) {drive_download(as_id(file['id']),path = paste0('data/period_', file['period'], '.csv'),overwrite = TRUE)}
 
-#Data stored in Data folder when this code runs 
+#Data stored in Data folder when this code runs
