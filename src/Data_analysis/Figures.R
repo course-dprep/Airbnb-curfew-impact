@@ -21,7 +21,7 @@ Curfew_Amsterdam_plots %>%
        title = "Figure 1: Airbnb Listing Prices in Amsterdam",
        subtitle = "From August 2020 till August 2021") +
   theme_bw()
-#how to adjust 7_scale without messing up graph
+#how to adjust y_scale without messing up graph
 #! graph needs to be adjusted on the y axis, change x axis dates to month written --> Aug 2020, Sep 2020
 
 #Development of the mean price of a room in Amsterdam superhost or not
