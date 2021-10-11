@@ -17,6 +17,7 @@ Curfew_Amsterdam_plots$date <- format(Curfew_Amsterdam_plots$date, "%Y/%m")
 Curfew_Amsterdam_plots %>% 
   ggplot(aes(x = date, y = price, group = "date")) + 
   geom_smooth(color = 'black', se = FALSE) +
+  expand_limits(y = c(145,160)) +
   labs(x = "Date in months", y = "Price ($)",
        title = "Figure 1: Average Airbnb Listing Price in Amsterdam",
        subtitle = "From August 2020 till August 2021") +

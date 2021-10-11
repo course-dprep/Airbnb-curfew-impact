@@ -68,8 +68,16 @@ install.packages(“modelsummary”)
 
 Explain to potential users how to run/replicate your workflow. Touch upon, if necessary, the required input data, which (secret) credentials are required (and how to obtain them), which software tools are needed to run the workflow (including links to the installation instructions), and how to run the workflow. Make use of subheaders where appropriate.
 
-## More resources
+## Resources
+If one is looking for more information regarding other variables that might influence Airbnb pricing, it is recommended to see the following article:
+- Chattopadhyay, M., & Mitra, S. (2019). Do airbnb host listing attributes influence room pricing homogenously?. International Journal Of Hospitality Management, 81, 54-64. doi: [10.1016/j.ijhm.2019.03.008](https://www-sciencedirect-com.tilburguniversity.idm.oclc.org/science/article/pii/S0278431918308491)
 
+This article provides a solid overview of past research done towards the determinants of Airbnb pricing and the authors investigate a couple more listing variables that might affect the Airbnb listing price. 
+
+The articles below discuss host status in more detail and the effect it has on pricing, which might be interesting since we found a negative effect for superhost status on Airbnb listing prices:
+
+- Ert, E., & Fleischer, A. (2019). The evolution of trust in Airbnb: A case of home rental. Annals Of Tourism Research, 75, 279-287. doi: [10.1016/j.annals.2019.01.004](https://tilburguniversity.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/abs/pii/S0160738319300040)
+- Liang, S., Schuckert, M., Law, R., & Chen, C. (2017). Be a “Superhost”: The importance of badge systems for peer-to-peer rental accommodations. Tourism Management, 60, 454-465. doi: [10.1016/j.tourman.2017.01.007](https://tilburguniversity.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/abs/pii/S0261517717300079)
 
 
 ## Contributors 
