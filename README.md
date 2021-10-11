@@ -1,3 +1,13 @@
+---
+title: "Curfew impact AirBnb Amsterdam"
+author: "Jeroen Maagdenberg, Quinten de Putter, Sam van de Ven & Tayfun Ozcan"
+date: "11 okt 2021"
+output: 
+  pdf_document:
+    keep_md: no
+urlcolor: blue
+---
+
 # The impact of Corona curfews on the prices of Airbnb listings in Amsterdam
 
 This repository belongs to the research into the impact of Corona curfews on the prices of Airbnb listings in Amsterdam. The research is part of the [Data Preparation and Workflow Management](https://dprep.hannesdatta.com) course at Tilburg University. In this research we answer the following research question:
