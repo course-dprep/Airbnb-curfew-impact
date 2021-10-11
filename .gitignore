@@ -3,5 +3,6 @@
 .RData
 .Ruserdata
 **csv
+**pdf
 .DS_Store
 .html
