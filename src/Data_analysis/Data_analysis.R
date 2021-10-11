@@ -24,7 +24,7 @@ table_m1_m2_m3 <- msummary(list(m1, m2, m3))
 table_m1_m2_m3
 
 # Checking model assumptions
-autoplot(m3,which = 1:3,nrow = 1,ncol = 3)
+autoplot(m3,which = 1:3,nrow = 1,ncol = 3) ### autoplot only works when my R memory is very low and have the data already on my pc
 ap <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) # ap stands for autoplot
 ggsave("autoplot.pdf", width = 8, height = 8) ### only plots 1 of the 3 figures into a pdf
 
@@ -53,7 +53,7 @@ stargazer(m1, m2, m3,
           notes.label = "Significance levels",
           type = 'text') #update after asking Hannes about which model we need to use.
 
-stargazer(m1, m2, m3, type = 'text')  
+stargazer(m1, m2, m3, type = 'text')
 
 # store output
 dir.create(("gen/paper"), showWarnings = FALSE)
