@@ -26,7 +26,7 @@ datacompl <- na.omit(all_data[, which(colnames(all_data)%in%cols_to_keep)]) %>% 
 
 datacompl <- arrange(datacompl, id)
 
-rm(all_data,tmp, cols_to_keep, files) ### clean environment
+rm(all_data,tmp, cols_to_keep, files, downloads, file) ### clean environment
 
 # --- Change name 'last_scraped' to 'date' and change variable type to 'Date' --- #
 colnames(datacompl)[which(colnames(datacompl) == 'last_scraped')] <- 'date'
