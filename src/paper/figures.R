@@ -5,6 +5,7 @@
 library(ggplot2)
 library(foreign)
 library(readr)
+library(tidyverse)
 
 Curfew_Amsterdam <- read_csv("./gen/data_prep/output/Curfew_Amsterdam.csv") ## remove before deadline
 
@@ -22,14 +23,14 @@ Curfew_Amsterdam_plots %>%
        title = "Figure 1: Average Airbnb Listing Price in Amsterdam",
        subtitle = "From August 2020 till August 2021") +
   theme_bw()
-#how to adjust y_scale without messing up graph
-#! graph needs to be adjusted on the y axis, change x axis dates to month written --> Aug 2020, Sep 2020
+# change x axis dates to month written --> Aug 2020, Sep 2020
 
 #Development of the mean price of a room in Amsterdam superhost or not
 
 Curfew_Amsterdam_plots %>% 
   ggplot(aes(x = date, y = price, group = host_is_superhost, color = host_is_superhost)) +
   geom_smooth(se = FALSE) +
+  expand_limits(y = c(140,160)) +
   labs(x = "Date", y = "Price ($)",
        title = "Figure 2: Airbnb Listing Prices for Super Host and Normal host status",
        subtitle = "From August 2020 till August 2021",) +
