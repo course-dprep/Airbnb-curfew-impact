@@ -24,6 +24,7 @@ Curfew_Amsterdam_plots %>%
        subtitle = "From August 2020 till August 2021") +
   theme_bw()
 # change x axis dates to month written --> Aug 2020, Sep 2020
+ggsave("gen/paper/output/avgprice.pdf")
 
 #Development of the mean price of a room in Amsterdam superhost or not
 
@@ -36,7 +37,7 @@ Curfew_Amsterdam_plots %>%
        subtitle = "From August 2020 till August 2021",) +
   theme_dark() +
   scale_color_manual(values = c("green", "orange")) #change title here but ran into an error message 
-
+ggsave("gen/paper/output/price_superhost.pdf")
 
 
 #Development of the price in different neighbourhoods --> one graph preferred 
@@ -44,3 +45,4 @@ Curfew_Amsterdam_plots %>%
 Curfew_Amsterdam_plots %>% 
   ggplot(aes(x = date, y = price, group = neighbourhood, color = neighbourhood)) + #not sure about this graph in particular, looks messy
   geom_smooth(se = FALSE) 
+ggsave("gen/paper/output/price_nbh.pdf")
