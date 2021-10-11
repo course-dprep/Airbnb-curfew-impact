@@ -7,7 +7,7 @@ library(foreign)
 library(readr)
 library(tidyverse)
 
-Curfew_Amsterdam <- read_csv("./gen/data_prep/output/Curfew_Amsterdam.csv") ## remove before deadline
+Curfew_Amsterdam <- read_csv("gen/data_prep/output/Curfew_Amsterdam.csv") ## remove before deadline
 
 
 #Development of the mean price of a room in Amsterdam over the 13 month period

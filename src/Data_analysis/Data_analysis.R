@@ -10,7 +10,7 @@ library(stargazer)
 library(modelsummary)
 
 # --- loading curfew data ---#
-Curfew_Amsterdam <- read_csv("./gen/data_prep/output/Curfew_Amsterdam.csv")
+Curfew_Amsterdam <- read_csv("gen/data_prep/output/Curfew_Amsterdam.csv")
 
 # --- Linear Regression models --- #
 
@@ -25,11 +25,13 @@ table_m1_m2_m3
 
 # Checking model assumptions
 autoplot(m3,which = 1:3,nrow = 1,ncol = 3)
+ap <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) # ap stands for autoplot
+ggsave("autoplot.pdf", width = 8, height = 8) ### only plots 1 of the 3 figures into a pdf
 
 #fig1 data points should center around the horizontal axis
 #fig2 second requirement is that the residuals are approximately normally distributed
 #fig3 check here if there is any pattern that stands out
-#volgens ons kloppen alle 3 de reqs
+#the data meets all three requirements
 
 # outliers screening
 
@@ -57,4 +59,4 @@ stargazer(m1, m2, m3, type = 'text')
 dir.create(("gen/paper"), showWarnings = FALSE)
 dir.create(("gen/paper/output"), showWarnings = FALSE)
 
-pdf("gen/paper/output/test_output.pdf")  ##### gives empty pdf but it works #####
+pdf("gen/paper/output/test_output.pdf")  ##### gives empty pdf but at least it creates a pdf #####

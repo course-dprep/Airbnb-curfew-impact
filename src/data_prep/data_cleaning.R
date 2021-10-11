@@ -46,7 +46,7 @@ datacompl$neighbourhood <- as.factor(datacompl$neighbourhood)
 datacompl <- datacompl %>% filter(!duplicated(datacompl))
 summary(datacompl)
 
-######### cleaning finished, save as csv file#########
+# --- cleaning finished, save as csv file --- #
 
 dir.create(("gen"), showWarnings = FALSE)
 dir.create(("gen/temp"), showWarnings = FALSE)

@@ -4,7 +4,7 @@ library(dplyr)
 library(stringr)
 
 #dataset
-datacompl <- read_csv("./gen/temp/datacompl.csv")
+datacompl <- read_csv("gen/temp/datacompl.csv")
 
 # --- Create dummy variable for curfew (1 = curfew 0 = no curfew) --- #
 datacompl$curfew <- ifelse( datacompl$date > as.Date("2021/01/23", format = "%Y/%m/%d") &
