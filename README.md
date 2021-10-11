@@ -14,7 +14,7 @@ The curfew and other covid restrictions had a massive impact on society, especia
 - Airbnb lost almost 700 million dollars in the first nine months of 2020, more than the total loss of 2019.
 - Airbnb's revenue was 32% lower in 2020 than it was in 2019. 
 
-For this research project we zoom in on Amsterdam, a city that is [heavily reliant on tourism](https://www.cbs.nl/nl-nl/longread/aanvullende-statistische-diensten/2021/toerismerekeningen-gemeente-amsterdam-2017-2019-?onepage=true).
+For this research project, we zoom in on Amsterdam, a city that is [heavily reliant on tourism](https://www.cbs.nl/nl-nl/longread/aanvullende-statistische-diensten/2021/toerismerekeningen-gemeente-amsterdam-2017-2019-?onepage=true).
 
 **Why is this research interesting and important?**
 - Determining the effect of the curfew on the income of landlords.
@@ -23,7 +23,7 @@ For this research project we zoom in on Amsterdam, a city that is [heavily relia
 
 ## Method and Results
 ### The research method
-The research method that is used in this research project is a multiple regression analysis. This type of analysis allows us to check the effect multiple variables have on the Airbnb listing prices in Amsterdam during the Covid-19 period. In our complete model curfew effects, Superhost status and neighbourhood are analysed. By putting these variables in a linear regression we can conclude if these variabes have a significant effect on the listing price of the Airbnb. The output of this model alows us to answer our research question.  
+The research method that is used in this research project is a multiple regression analysis. This type of analysis allows us to check the effect multiple variables have on the Airbnb listing prices in Amsterdam during the Covid-19 period. In our complete model curfew effects, Superhost status and neighbourhood are analysed. By putting these variables in a linear regression model we can conclude if these variables have a significant effect on the  price of the Airbnb listing. The output of this model allows us to answer our research question.  
 
 ### Data collection and preparation
 The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research:
@@ -43,13 +43,13 @@ The model of this research:
 ### Results
 In our Rmarkdown file there are figures and tables shown with the results of our study. The results are as follows:
 - It is clear that the curfew had a negative effect on the Airbnb Listing price.
-- The effect of the later curfew (22:00) was less dramatic then that of the original curfew (21:00). 
-- During the Covid-19 crisis Superhost status had a significant negative effect on the Airbnb listing price.
+- The effect of the later curfew (22:00) was less dramatic than that of the original curfew (21:00). 
+- During the Covid-19 crisis, Superhost status had a significant negative effect on the Airbnb listing price.
 - There are significant differences between neighbourhoods, which is to be expected. 
 
 ## Repository overview
 
-The repository consists of a src folder and Docs folder, followed by the gitignore file and the R project file. 
+The repository consists of an src folder and Docs folder, followed by the gitignore file and the R project file. 
 
 ## Running instructions
 
@@ -60,9 +60,14 @@ The repository consists of a src folder and Docs folder, followed by the gitigno
 install.packages("readr")
 install.packages("googledrive")
 install.packages("dplyr")
-install.packages(“data.table)
-install.packages(“stargazer”)
-install.packages(“modelsummary”)
+install.packages("data.table")
+install.packages("stargazer")
+install.packages("modelsummary")
+install.packages("ggplot2")
+install.packages("ggfortify")
+install.packages("broom")
+install.packages("foreign")
+install.packages("tidyverse")
 ```
 - The data will be downloaded from Google Drive by running the 'data_download.R' script. To access these data files, you are only required to have a Google Drive account.
 
@@ -74,7 +79,7 @@ If one is looking for more information regarding other variables that might infl
 
 This article provides a solid overview of past research done towards the determinants of Airbnb pricing and the authors investigate a couple more listing variables that might affect the Airbnb listing price. 
 
-The articles below discuss host status in more detail and the effect it has on pricing, which might be interesting since we found a negative effect for superhost status on Airbnb listing prices:
+The articles below discuss host status in more detail and the effect it has on pricing, which might be interesting since we found a negative effect for Superhost status on Airbnb listing prices:
 
 - Ert, E., & Fleischer, A. (2019). The evolution of trust in Airbnb: A case of home rental. Annals Of Tourism Research, 75, 279-287. doi: [10.1016/j.annals.2019.01.004](https://tilburguniversity.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/abs/pii/S0160738319300040)
 - Liang, S., Schuckert, M., Law, R., & Chen, C. (2017). Be a “Superhost”: The importance of badge systems for peer-to-peer rental accommodations. Tourism Management, 60, 454-465. doi: [10.1016/j.tourman.2017.01.007](https://tilburguniversity.idm.oclc.org/login?url=https://www.sciencedirect.com/science/article/abs/pii/S0261517717300079)
