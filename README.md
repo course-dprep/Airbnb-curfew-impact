@@ -67,6 +67,8 @@ The repository consists of an src folder and Docs folder, followed by the gitign
 - In R, install additional packages by copy/pasting and running the following lines in an R script:
 
 ```
+install.packages(stringr)
+install.packages(data.table)
 install.packages("readr")
 install.packages("googledrive")
 install.packages("dplyr")
