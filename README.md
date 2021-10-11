@@ -18,12 +18,12 @@ For this research project we zoom in on Amsterdam, a city that is [heavily relia
 
 **Why is this research interesting and important?**
 - Determining the effect of the curfew on the income of landlords.
-- Effects of the neighbourhood on the Airbnb listing.
-- Effects of the host status on the Airbnb listing.
+- Effects of the neighbourhood on the Airbnb listing price.
+- Effects of the host status on the Airbnb listing price.
 
-## Method and results
+## Method and Results
 ### The research method
-introduce and motivate regression analysis and explain how it contributes to solving the research question/business problem.
+The research method that is used in this research project is a multiple regression analysis. This type of analysis allows us to check the effect multiple variables have on the Airbnb listing prices in Amsterdam during the Covid-19 period. In our complete model curfew effects, Superhost status and neighbourhood are analysed. By putting these variables in a linear regression we can conclude if these variabes have a significant effect on the listing price of the Airbnb. The output of this model alows us to answer our research question.  
 
 ### Data collection and preparation
 The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research:
@@ -41,11 +41,15 @@ The model of this research:
 - MOD: ‘host_is_superhost’ and ‘neighbourhood_cleansed’
 
 ### Results
-Summarize your results concisely.
+In our Rmarkdown file there are figures and tables shown with the results of our study. The results are as follows:
+- It is clear that the curfew had a negative effect on the Airbnb Listing price.
+- The effect of the later curfew (22:00) was less dramatic then that of the original curfew (21:00). 
+- During the Covid-19 crisis Superhost status had a significant negative effect on the Airbnb listing price.
+- There are significant differences between neighbourhoods, which is to be expected. 
 
 ## Repository overview
 
-The repository consists of a Codes folder and Docs folder, followed by the gitignore file and the R project file. 
+The repository consists of a src folder and Docs folder, followed by the gitignore file and the R project file. 
 
 ## Running instructions
 
@@ -66,7 +70,7 @@ Explain to potential users how to run/replicate your workflow. Touch upon, if ne
 
 ## More resources
 
-Point interested users to any related literature and/or documentation.
+
 
 ## Contributors 
 
