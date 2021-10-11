@@ -1,8 +1,8 @@
 ---
-title: "Curfew impact AirBnb Amsterdam"
-author: "Jeroen Maagdenberg, Quinten de Putter, Sam van de Ven & Tayfun Ozcan"
-date: "11 okt 2021"
-output: 
+Title: "Curfew impact AirBnb Amsterdam"
+Authors: "Jeroen Maagdenberg, Quinten de Putter, Sam van de Ven & Tayfun Ozcan"
+Date: "11 okt 2021"
+Output: 
   pdf_document:
     keep_md: no
 urlcolor: blue
