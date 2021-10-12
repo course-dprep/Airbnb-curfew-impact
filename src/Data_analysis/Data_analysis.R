@@ -16,12 +16,10 @@ Curfew_Amsterdam <- read_csv("gen/data_prep/output/Curfew_Amsterdam.csv")
 
 # --- Checking effect curfew and smaller curfew window --- #
 m1 <- lm(price ~ 1 + curfew + host_is_superhost, data = Curfew_Amsterdam)
-m2 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
-m3 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
-m4 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam) #this one or m3?
+m2 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
+m3 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
 
-table_m1_m2_m3 <- stargazer(list(m1, m2, m3, m4), type='text') #### additional effect. use effect code ....
-
+table_m1_m2_m3 <- stargazer(list(m1, m2, m3, type='text')) 
 table_m1_m2_m3
 
 # Checking model assumptions
