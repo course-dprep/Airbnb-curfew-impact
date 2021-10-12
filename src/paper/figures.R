@@ -46,3 +46,38 @@ Curfew_Amsterdam_plots %>%
   ggplot(aes(x = date, y = price, group = neighbourhood, color = neighbourhood)) + #not sure about this graph in particular, looks messy
   geom_smooth(se = FALSE) 
 ggsave("gen/paper/output/price_nbh.pdf")
+
+#--- Stargazer output ---#
+
+stargazer(m1, m2, m3, m4,
+  title = "Impact curfew AirBnb in Amsterdam",
+  dep.var.caption = "DV: Price of listing",
+  notes.label = "Significance levels",
+  covariate.labels = c(
+    "Curfew",
+    "Curfew 21:00",
+    "Curfew 22:00",
+    "Host is Superhost",
+    "Bijlmer Oost",
+    "Bos en Lommer",
+    "Buitenveldert Zuidas",
+    "Centrum Oost",
+    "Centrum West",
+    "De Aker Nieuwe Sloten",
+    "De Baarsjes Oud West",
+    "De Pijp Rivierenbuurt",
+    "Gaasperdam Driemond",
+    "Geuzenveld Slotermeer",
+    "IJburg Zeeburgereiland",
+    "Noord Oost",
+    "Noord West",
+    "Oostelijk Havengebied Indische Buurt",
+    "Osdorp",
+    "Oud Noord",
+    "Oud Oost",
+    "Slotervaart",
+    "Watergraafsmeer",
+    "Westerpark",
+    "Zuid",
+    "Constant"),
+  type = 'html',out = "gen/paper/output/outputstargazer.htm")
