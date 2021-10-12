@@ -1,0 +1,233 @@
+---
+title: Dprep project team 15
+author: Tayfun Ozcan, Jeroen Maagdenberg, Sam van de Ven and Quinten de Putter
+output: html_document
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(stargazer)
+library(readr)
+library(stringr)
+library(modelsummary)
+library(googledrive)
+library(data.table)
+library(foreign)
+library(broom)
+library(ggfortify)
+```
+
+---
+In this project we examine the impact of Corona curfews on the prices of Airbnb listings in Amsterdam. We use the data from [Inside Airbnb](http://insideairbnb.com/amsterdam/)
+
+*Research question: Did the curfew affect the prices of Airbnb listings? Zooming in on Amsterdam*
+
+We examine the following things in this project:
+* Determining the effect of the curfew on the income of landlords.
+* Effects of the neighbourhood on the Airbnb listing price.
+* Effects of the host status on the Airbnb listing price.
+
+---
+
+### Step 1: Downloading the Data
+As mentioned the data is downloaded from [Inside Airbnb](http://insideairbnb.com/amsterdam/). The period we analyse in this project is August 2020 till August 2021. The data files are stored in Google Drive so it can be accessed at any point in time. 
+
+```{r}
+# Create Directionary
+dir.create(("data"), showWarnings = FALSE)
+
+# Download
+downloads <- list(
+    c(id = "1tDtmLxH6XwlTu9svStQRzk7ccEjwA9l9", period = 'aug2020'),
+    c(id = "1-nS3tzFpoHdsCZH9wHFcjP9o-_dxKpJE", period = 'sep2020'),
+    c(id = "1OiGuMc2NlmMqnIUfwSxPK8ro6tDvhPee", period = 'oct2020'),
+    c(id = "10QeqkNrZjgSQGCAT4rOP9NMY7P7lA_6q", period = 'nov2020'),
+    c(id = "1SgMdGDJ8wBqGdTjmBkUfvGqGGYG4bSYJ", period = 'dec2020'),
+    c(id = "11a5kVji75PnckMyX-7sh47ETEAXnU9Bv", period = 'jan2021'),
+    c(id = "19LaoXLHoKTKBI2PdqUIXqgR6cRPjvIYB", period = 'feb2021'),
+    c(id = "1RGrGAzX6FkgnHtUsD48v-0NwIHDDZfh4", period = 'mar2021'),
+    c(id = "1GV1d8CegjMZTQ7sEhDmX2EQnKrDFuF0h", period = 'apr2021'),
+    c(id = "1MKF3vQq9B-a3Aa9rbKIxcApOTw13rqIi", period = 'may2021'),
+    c(id = "1HAv7ibe01Lm-2D1l5A0Uzh9w_JaHqJmx", period = 'jun2021'),
+    c(id = "1MYQR3pe68ZsnDHqtPmgsClbJAhxyntTP", period = 'jul2021'),
+    c(id = "1xRa3NPLvkWR1RggqGe6KsuYn6BKZNB80", period = 'aug2021'))
+
+# Loop
+for (file in downloads) {drive_download(as_id(file['id']),
+                                        path = paste0('data/period_', 
+                                                      file['period'], '.csv'),
+                                        overwrite = TRUE)}
+```
+
+### Step 2: Combining the Dataframes together and transform it.
+
+#### Combining Data
+
+``` {r}
+# Load in R environment
+files = list.files('Data', pattern = 'csv', full.names = T)
+
+# Load all the data in one list and save as tibble
+tmp <- lapply(files, fread)
+all_data <- rbindlist(tmp)
+
+all_data <- tibble(all_data)
+```
+
+#### Data cleaning and transformation
+
+``` {r}
+# Keep Relevant Columns and get rid of missing values
+
+cols_to_keep = c('id', 'last_scraped', 'host_id', 'host_is_superhost','neighbourhood_cleansed', 'price')
+datacompl <- na.omit(all_data[, which(colnames(all_data)%in%cols_to_keep)]) %>% filter(all_data$host_is_superhost != "")
+
+#Grouping together
+datacompl <- arrange(datacompl, id)
+rm(all_data,tmp, cols_to_keep, files, downloads, file) 
+
+# Changing last_scraped to Date variable
+colnames(datacompl)[which(colnames(datacompl) == 'last_scraped')] <- 'date'
+datacompl$date = as.Date(datacompl$date)
+
+# Adjust Price to numeric variable
+datacompl$price = as.numeric(gsub("\\$", "", datacompl$price))
+datacompl <- datacompl %>% filter(price > 0)
+
+# Rename neighbourhood_cleansed and change it to a factor
+datacompl <- rename(datacompl, neighbourhood = neighbourhood_cleansed)
+datacompl$neighbourhood <- as.factor(datacompl$neighbourhood)
+
+# Checking for duplicates and get summary output
+datacompl <- datacompl %>% filter(!duplicated(datacompl))
+summary(datacompl)
+
+# Create subfolders and store cleaned data as csv
+dir.create(("gen"), showWarnings = FALSE)
+dir.create(("gen/temp"), showWarnings = FALSE)
+write.csv(datacompl, "gen/temp/datacompl.csv", row.names = FALSE)
+```
+
+### Step 3: Creating Dummy variables for Curfew
+
+```{r}
+# Create dummy variable for curfew
+datacompl$curfew <- ifelse( datacompl$date > as.Date("2021/01/23", format = "%Y/%m/%d") &
+                              datacompl$date < as.Date("2021/04/28", format = "%Y/%m/%d"), 1, 0)
+
+# Create dummy variable for type of curfew (21:00 and 22:00)
+datacompl$curfew_2100 <- ifelse( datacompl$date > as.Date("2021/01/23", format = "%Y/%m/%d") &
+                                   datacompl$date < as.Date("2021/03/31", format = "%Y/%m/%d"), 1, 0) 
+datacompl$curfew_2200 <- ifelse( datacompl$date > as.Date("2021/03/31", format = "%Y/%m/%d") &
+                                   datacompl$date < as.Date("2021/04/28", format = "%Y/%m/%d"), 1, 0)  
+```
+
+#### Change Data name and store as csv
+```{r}
+Curfew_Amsterdam <- datacompl
+rm(datacompl)
+
+# Create subfolder and save as csv
+ir.create(("gen/data_prep"), showWarnings = FALSE)
+dir.create(("gen/data_prep/output"), showWarnings = FALSE)
+write.csv(Curfew_Amsterdam, "gen/data_prep/output/Curfew_Amsterdam.csv", row.names = FALSE)
+
+```
+
+### Step 4: Creating linear Regressions
+```{r}
+# Functions
+m1 <- lm(price ~ 1 + curfew + host_is_superhost, data = Curfew_Amsterdam)
+m2 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
+m3 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
+m4 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam) #check needed
+```
+
+
+#### Checking model assumptions
+```{r}
+autoplot(m3,which = 1:3,nrow = 1,ncol = 3)
+autoplot <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) 
+
+# Outlier screening
+pot_outliers <- m3 %>%
+  augment() %>%
+  select(price, curfew_2100, curfew_2200, host_is_superhost, neighbourhood, leverage = .hat, cooks_dist = .cooksd) %>%
+  arrange(desc(cooks_dist)) %>%
+  head()
+pot_outliers
+```
+
+### Step 5 Creating output docs
+
+#### Figures
+```{r}
+#Change in date variable
+Curfew_Amsterdam_plots <- Curfew_Amsterdam
+Curfew_Amsterdam_plots$date <- format(Curfew_Amsterdam_plots$date, "%Y/%m")
+
+#Figure 1
+Curfew_Amsterdam_plots %>% 
+  ggplot(aes(x = date, y = price, group = "date")) + 
+  geom_smooth(color = 'black', se = FALSE) +
+  expand_limits(y = c(145,160)) +
+  labs(x = "Date in months", y = "Price ($)",
+       title = "Figure 1: Average Airbnb Listing Price in Amsterdam",
+       subtitle = "From August 2020 till August 2021") +
+  theme_bw()
+
+#Figure 2
+Curfew_Amsterdam_plots %>% 
+  ggplot(aes(x = date, y = price, group = host_is_superhost, color = host_is_superhost)) +
+  geom_smooth(se = FALSE) +
+  expand_limits(y = c(140,160)) +
+  labs(x = "Date", y = "Price ($)",
+       title = "Figure 2: Airbnb Listing Prices for Super Host and Normal host status",
+       subtitle = "From August 2020 till August 2021",) +
+  theme_dark() +
+  scale_color_manual(values = c("green", "orange")) #change title here but ran into an error message 
+ggsave("gen/paper/output/price_superhost.pdf")
+
+```
+
+#### Stargazer output
+```{r}
+stargazer(m1, m2, m3, m4,
+  title = "Table 1: Impact curfew AirBnb in Amsterdam",
+  dep.var.caption = "DV: Price of listing",
+  notes.label = "Significance levels",
+  covariate.labels = c(
+    "Curfew",
+    "Curfew 21:00",
+    "Curfew 22:00",
+    "Host is Superhost",
+    "Bijlmer Oost",
+    "Bos en Lommer",
+    "Buitenveldert Zuidas",
+    "Centrum Oost",
+    "Centrum West",
+    "De Aker Nieuwe Sloten",
+    "De Baarsjes Oud West",
+    "De Pijp Rivierenbuurt",
+    "Gaasperdam Driemond",
+    "Geuzenveld Slotermeer",
+    "IJburg Zeeburgereiland",
+    "Noord Oost",
+    "Noord West",
+    "Oostelijk Havengebied Indische Buurt",
+    "Osdorp",
+    "Oud Noord",
+    "Oud Oost",
+    "Slotervaart",
+    "Watergraafsmeer",
+    "Westerpark",
+    "Zuid",
+    "Constant"),
+  type = 'text')
+```
+
+
+### Step 6 Conclusion
+In Conclusion if we look at Table 1, we can see that the three variables we examine have significant effects on the price of the Airbnb listing. The curfew had a negative impact on the price. One thing that stands out is that being super host during the covid-19 pandemic resulted in a negative effect on price, which is interesting. As expected neighbourhoods do have an effect, which makes sense. 
