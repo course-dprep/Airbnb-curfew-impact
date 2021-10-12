@@ -1,4 +1,4 @@
-prototype: gen/temp/datacompl.csv
+prototype: gen/temp/datacompl.csv gen/paper/output/price_superhost.pdf
 
 
 all: data/data_downloaded.txt gen/paper/output/outputstargazer.htm gen/paper/output/avgprice.pdf gen/paper/output/price_superhost.pdf

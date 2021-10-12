@@ -43,19 +43,39 @@ pot_outliers
 
 #very low values, no outliers in data
 
-# check p-values
-stargazer(m1, m2, m3,
-          title = "Figure 1: Curfew effect on Airbnb Prices",
-          dep.var.caption = "Airbnb Pricing",
-          dep.var.labels = "",
-          column.labels = c("Original Curfew", "Later Curfew"),
-          notes.label = "Significance levels",
-          type = 'text') #update after asking Hannes about which model we need to use.
-
-stargazer(m1, m2, m3, type = 'text')
-
-# store output
+#Model output
 dir.create(("gen/paper"), showWarnings = FALSE)
 dir.create(("gen/paper/output"), showWarnings = FALSE)
 
-pdf("gen/paper/output/test_output.pdf")  ##### gives empty pdf but at least it creates a pdf #####
+stargazer(m1, m2, m3,
+          title = "Impact curfew AirBnb in Amsterdam",
+          dep.var.caption = "DV: Price of listing",
+          notes.label = "Significance levels",
+          covariate.labels = c(
+            "Curfew",
+            "Curfew 21:00",
+            "Curfew 22:00",
+            "Host is Superhost",
+            "Bijlmer Oost",
+            "Bos en Lommer",
+            "Buitenveldert Zuidas",
+            "Centrum Oost",
+            "Centrum West",
+            "De Aker Nieuwe Sloten",
+            "De Baarsjes Oud West",
+            "De Pijp Rivierenbuurt",
+            "Gaasperdam Driemond",
+            "Geuzenveld Slotermeer",
+            "IJburg Zeeburgereiland",
+            "Noord Oost",
+            "Noord West",
+            "Oostelijk Havengebied Indische Buurt",
+            "Osdorp",
+            "Oud Noord",
+            "Oud Oost",
+            "Slotervaart",
+            "Watergraafsmeer",
+            "Westerpark",
+            "Zuid",
+            "Constant"),
+          type = 'html',out = "gen/paper/output/outputstargazer.htm")
