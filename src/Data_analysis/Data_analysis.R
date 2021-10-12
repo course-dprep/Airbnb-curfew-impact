@@ -20,7 +20,8 @@ m2 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost, data = Curfe
 m3 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
 m4 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam) #this one or m3?
 
-table_m1_m2_m3 <- msummary(list(m1, m2, m3))
+table_m1_m2_m3 <- stargazer(list(m1, m2, m3, m4), type='text') #### additional effect. use effect code ....
+
 table_m1_m2_m3
 
 # Checking model assumptions

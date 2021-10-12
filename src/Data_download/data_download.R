@@ -22,6 +22,10 @@ downloads <- list(
     c(id = "1MYQR3pe68ZsnDHqtPmgsClbJAhxyntTP", period = 'jul2021'),
     c(id = "1xRa3NPLvkWR1RggqGe6KsuYn6BKZNB80", period = 'aug2021'))
 
-for (file in downloads) {drive_download(as_id(file['id']),path = paste0('data/period_', file['period'], '.csv'),overwrite = TRUE)}
+for (file in downloads) {cat(paste0("Downloading ", file['id'], "..."));drive_download(as_id(file['id']),path = paste0('data/period_', file['period'], '.csv'),overwrite = TRUE)}
+
+sink('data/data_downloaded.txt')
+cat('I am done!')
+sink()
 
 #Data stored in Data folder when this code runs
