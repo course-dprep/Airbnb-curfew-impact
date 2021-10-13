@@ -8,6 +8,8 @@ library(dplyr)
 library(readr)
 library(stargazer)
 library(modelsummary)
+library(ISLR)
+
 
 # --- loading curfew data ---#
 Curfew_Amsterdam <- read_csv("gen/data_prep/output/Curfew_Amsterdam.csv")
@@ -18,14 +20,14 @@ Curfew_Amsterdam <- read_csv("gen/data_prep/output/Curfew_Amsterdam.csv")
 m1 <- lm(price ~ 1 + curfew + host_is_superhost, data = Curfew_Amsterdam)
 m2 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
 m3 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
-m4 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam) #this one or m3?
+m4 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)  
 
-table_m1_m2_m3 <- stargazer(list(m1, m2, m3, m4), type='text') #### additional effect. use effect code ....
+table_m1_m2_m3_m4<- stargazer(list(m1, m2, m3, m4), type='text') #### additional effect. use effect code ....
 
-table_m1_m2_m3
+table_m1_m2_m3_m4
 
 # Checking model assumptions
-autoplot(m3,which = 1:3,nrow = 1,ncol = 3) ### autoplot only works when my R memory is very low and have the data already on my pc
+autoplot(m4,which = 1:3,nrow = 1,ncol = 3) ### autoplot only works when my R memory is very low and have the data already on my pc
 ap <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) # ap stands for autoplot
 ggsave("gen/paper/output/autoplot.pdf", width = 8, height = 8) ### only plot 1 of the 3 goes into the pdf
 
@@ -36,7 +38,7 @@ ggsave("gen/paper/output/autoplot.pdf", width = 8, height = 8) ### only plot 1 o
 
 # outliers screening
 
-pot_outliers <- m3 %>%
+pot_outliers <- m4 %>%
   augment() %>%
   select(price, curfew_2100, curfew_2200, host_is_superhost, neighbourhood, leverage = .hat, cooks_dist = .cooksd) %>%
   arrange(desc(cooks_dist)) %>%
@@ -46,18 +48,20 @@ pot_outliers
 #very low values, no outliers in data
 
 # check p-values
-stargazer(m1, m2, m3,
+stargazer(m1, m2, m3, m4,
           title = "Figure 1: Curfew effect on Airbnb Prices",
           dep.var.caption = "Airbnb Pricing",
           dep.var.labels = "",
           column.labels = c("Original Curfew", "Later Curfew"),
           notes.label = "Significance levels",
-          type = 'text') #update after asking Hannes about which model we need to use.
+          type = 'text') 
 
-stargazer(m1, m2, m3, type = 'text')
+stargazer(m1, m2, m3, m4, type = 'text')
 
 # store output
 dir.create(("gen/paper"), showWarnings = FALSE)
 dir.create(("gen/paper/output"), showWarnings = FALSE)
 
 pdf("gen/paper/output/test_output.pdf")  ##### gives empty pdf but at least it creates a pdf #####
+
+
