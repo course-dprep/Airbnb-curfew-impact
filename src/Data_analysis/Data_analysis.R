@@ -10,7 +10,7 @@ library(stargazer)
 library(modelsummary)
 
 # --- loading curfew data ---#
-Curfew_Amsterdam <- read_csv("gen/data_prep/output/Curfew_Amsterdam.csv")
+Curfew_Amsterdam <- read_csv("gen/temp/Curfew_Amsterdam.csv")
 
 # --- Linear Regression models --- #
 
@@ -25,7 +25,7 @@ table_m1_m2_m3
 # Checking model assumptions
 autoplot(m3,which = 1:3,nrow = 1,ncol = 3) ### autoplot only works when my R memory is very low and have the data already on my pc
 ap <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) # ap stands for autoplot
-ggsave("gen/paper/output/autoplot.pdf", width = 8, height = 8) ### only plot 1 of the 3 goes into the pdf
+ggsave("gen/temp/autoplot.pdf", width = 8, height = 8) ### only plot 1 of the 3 goes into the pdf
 
 #fig1 data points should center around the horizontal axis
 #fig2 second requirement is that the residuals are approximately normally distributed
@@ -36,7 +36,7 @@ ggsave("gen/paper/output/autoplot.pdf", width = 8, height = 8) ### only plot 1 o
 
 pot_outliers <- m3 %>%
   augment() %>%
-  select(price, curfew_2100, curfew_2200, host_is_superhost, neighbourhood, leverage = .hat, cooks_dist = .cooksd) %>%
+  select(price, curfew, curfew_2200, host_is_superhost, neighbourhood, leverage = .hat, cooks_dist = .cooksd) %>%
   arrange(desc(cooks_dist)) %>%
   head()
 pot_outliers
@@ -44,8 +44,6 @@ pot_outliers
 #very low values, no outliers in data
 
 #Model output
-dir.create(("gen/paper"), showWarnings = FALSE)
-dir.create(("gen/paper/output"), showWarnings = FALSE)
 
 stargazer(m1, m2, m3,
           title = "Impact curfew AirBnb in Amsterdam",
@@ -78,4 +76,4 @@ stargazer(m1, m2, m3,
             "Westerpark",
             "Zuid",
             "Constant"),
-          type = 'html',out = "gen/paper/output/outputstargazer.htm")
+          type = 'html',out = "gen/paper/stargazer.htm")

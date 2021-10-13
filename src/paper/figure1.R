@@ -6,7 +6,7 @@ library(foreign)
 library(readr)
 library(tidyverse)
 
-Curfew_Amsterdam <- read_csv("gen/data_prep/output/Curfew_Amsterdam.csv") ## remove before deadline
+Curfew_Amsterdam <- read_csv("gen/temp/Curfew_Amsterdam.csv") 
 
 #grouping data together per month
 Curfew_Amsterdam_plots <- Curfew_Amsterdam
@@ -21,6 +21,6 @@ Curfew_Amsterdam_plots %>%
        subtitle = "From August 2020 till August 2021") +
   theme_bw()
 # change x axis dates to month written --> Aug 2020, Sep 2020
-ggsave("gen/paper/output/avgprice.pdf")
+ggsave("gen/paper/avgprice.pdf")
 
 

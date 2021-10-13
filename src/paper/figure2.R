@@ -6,7 +6,10 @@ library(foreign)
 library(readr)
 library(tidyverse)
 
+Curfew_Amsterdam <- read_csv("gen/temp/Curfew_Amsterdam.csv") 
+
 #grouping data together per month
+
 Curfew_Amsterdam_plots <- Curfew_Amsterdam
 Curfew_Amsterdam_plots$date <- format(Curfew_Amsterdam_plots$date, "%Y/%m")
 
@@ -19,5 +22,5 @@ Curfew_Amsterdam_plots %>%
        subtitle = "From August 2020 till August 2021",) +
   theme_dark() +
   scale_color_manual(values = c("green", "orange")) #change title here but ran into an error message 
-ggsave("gen/paper/output/price_superhost.pdf")
+ggsave("gen/paper/price_superhost.pdf")
 
