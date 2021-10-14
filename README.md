@@ -52,13 +52,13 @@ In our Rmarkdown file there are figures and tables shown with the results of our
 The various files in this github repository will be explained in this section
 
 -The source ("src")  mapincludes the data scripts that are needed to download, clean, analyse and create the figures.
--Want to run src automatically? That's possible! Open the makefile and type "make"" in the command prompt.
--Doing so creates two extra directories namely: "data" and "gen".
--The gen folder has two sub-directories "temp" and "paper". 
--In the docs file you find the Rmarkdown file, which includes figures and tables build in the analyse part.
--The Gitignore names files that don't need to be uploaded to the dropbox
--The .Rproj file includes the settings and options of this project
--Finally this repository contains a Readme file which you are reading now. It contains info about the project, authors, packages etc.
+- Want to run src automatically? That's possible! Open the makefile and type "make"" in the command prompt.
+- Doing so creates two extra directories namely: "data" and "gen".
+- The gen folder has two sub-directories "temp" and "paper". 
+- In the docs file you find the Rmarkdown file, which includes figures and tables build in the analyse part.
+- The Gitignore names files that don't need to be uploaded to the dropbox
+- The .Rproj file includes the settings and options of this project
+- Finally this repository contains a Readme file which you are reading now. It contains info about the project, authors, packages etc.
 
 ## Running instructions
 
