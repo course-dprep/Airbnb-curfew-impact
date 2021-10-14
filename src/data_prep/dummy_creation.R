@@ -21,6 +21,4 @@ Curfew_Amsterdam <- datacompl
 rm(datacompl)
 
 # --- Store as csv file --- #
-dir.create(("gen/data_prep"), showWarnings = FALSE)
-dir.create(("gen/data_prep/output"), showWarnings = FALSE)
-write.csv(Curfew_Amsterdam, "gen/data_prep/output/Curfew_Amsterdam.csv", row.names = FALSE) #gen/data_prep/output is final data output file
+write.csv(Curfew_Amsterdam, "gen/temp/Curfew_Amsterdam.csv", row.names = FALSE) #gen/data_prep/output is final data output file
