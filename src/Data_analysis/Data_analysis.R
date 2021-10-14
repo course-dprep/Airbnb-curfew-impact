@@ -8,6 +8,8 @@ library(dplyr)
 library(readr)
 library(stargazer)
 library(modelsummary)
+library(ISLR)
+
 
 # --- loading curfew data ---#
 Curfew_Amsterdam <- read_csv("gen/temp/Curfew_Amsterdam.csv")
@@ -23,7 +25,7 @@ table_m1_m2_m3 <- stargazer(list(m1, m2, m3, type='text'))
 table_m1_m2_m3
 
 # Checking model assumptions
-autoplot(m3,which = 1:3,nrow = 1,ncol = 3) ### autoplot only works when my R memory is very low and have the data already on my pc
+autoplot(m4,which = 1:3,nrow = 1,ncol = 3) ### autoplot only works when my R memory is very low and have the data already on my pc
 ap <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) # ap stands for autoplot
 ggsave("gen/temp/autoplot.pdf", width = 8, height = 8) ### only plot 1 of the 3 goes into the pdf
 
@@ -34,7 +36,7 @@ ggsave("gen/temp/autoplot.pdf", width = 8, height = 8) ### only plot 1 of the 3 
 
 # outliers screening
 
-pot_outliers <- m3 %>%
+pot_outliers <- m4 %>%
   augment() %>%
   select(price, curfew, curfew_2200, host_is_superhost, neighbourhood, leverage = .hat, cooks_dist = .cooksd) %>%
   arrange(desc(cooks_dist)) %>%
