@@ -4,7 +4,7 @@ library(readr)
 library(googledrive)
 
 # --- Create Directory --- #
-dir.create(("data"), showWarnings = FALSE) #creating folder on local machine
+dir.create(("data"), showWarnings = FALSE) 
 
 # --- Download data --- #
 downloads <- list(
