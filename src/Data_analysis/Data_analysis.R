@@ -8,7 +8,6 @@ library(dplyr)
 library(readr)
 library(stargazer)
 library(modelsummary)
-library(ISLR)
 
 
 # --- loading curfew data ---#
@@ -25,18 +24,18 @@ table_m1_m2_m3 <- stargazer(list(m1, m2, m3, type='text'))
 table_m1_m2_m3
 
 # Checking model assumptions
-autoplot(m4,which = 1:3,nrow = 1,ncol = 3) ### autoplot only works when my R memory is very low and have the data already on my pc
+autoplot(m3,which = 1:3,nrow = 1,ncol = 3) 
 ap <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) # ap stands for autoplot
 ggsave("gen/temp/autoplot.pdf", width = 8, height = 8) ### only plot 1 of the 3 goes into the pdf
 
 #fig1 data points should center around the horizontal axis
 #fig2 second requirement is that the residuals are approximately normally distributed
 #fig3 check here if there is any pattern that stands out
-#the data meets all three requirements
+#the data meets all three requirements    
 
 # outliers screening
 
-pot_outliers <- m4 %>%
+pot_outliers <- m3 %>%
   augment() %>%
   select(price, curfew, curfew_2200, host_is_superhost, neighbourhood, leverage = .hat, cooks_dist = .cooksd) %>%
   arrange(desc(cooks_dist)) %>%
@@ -48,7 +47,7 @@ pot_outliers
 #Model output
 
 stargazer(m1, m2, m3,
-          title = "Impact curfew AirBnb in Amsterdam",
+          title = "Impact curfew on Airbnb in Amsterdam",
           dep.var.caption = "DV: Price of listing",
           notes.label = "Significance levels",
           covariate.labels = c(

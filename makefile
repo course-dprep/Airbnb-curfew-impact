@@ -19,5 +19,5 @@ gen/paper/avgprice.pdf: src/paper/figure1.R gen/temp/Curfew_Amsterdam.csv
 gen/paper/price_superhost.pdf: src/paper/figure2.R gen/temp/Curfew_Amsterdam.csv
 		R --vanilla < src/paper/figure2.R
 		
-gen/paper/stargazer.htm: src/Data_analysis/Data_analysis.R gen/temp/Curfew_Amsterdam.csv
-		R --vanilla < src/Data_analysis/Data_analysis.R
+gen/paper/stargazer.htm: src/Data_analysis/data_analysis.R gen/temp/Curfew_Amsterdam.csv
+		R --vanilla < src/Data_analysis/data_analysis.R
