@@ -48,6 +48,4 @@ summary(datacompl)
 
 # --- cleaning finished, save as csv file --- #
 
-dir.create(("gen"), showWarnings = FALSE)
-dir.create(("gen/temp"), showWarnings = FALSE)
 write.csv(datacompl, "gen/temp/datacompl.csv", row.names = FALSE)

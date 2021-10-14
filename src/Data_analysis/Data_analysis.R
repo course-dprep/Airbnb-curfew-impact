@@ -10,24 +10,22 @@ library(stargazer)
 library(modelsummary)
 
 # --- loading curfew data ---#
-Curfew_Amsterdam <- read_csv("gen/data_prep/output/Curfew_Amsterdam.csv")
+Curfew_Amsterdam <- read_csv("gen/temp/Curfew_Amsterdam.csv")
 
 # --- Linear Regression models --- #
 
 # --- Checking effect curfew and smaller curfew window --- #
 m1 <- lm(price ~ 1 + curfew + host_is_superhost, data = Curfew_Amsterdam)
-m2 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
-m3 <- lm(price ~ 1 + curfew_2100 + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
-m4 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam) #this one or m3?
+m2 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
+m3 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
 
-table_m1_m2_m3 <- stargazer(list(m1, m2, m3, m4), type='text') #### additional effect. use effect code ....
-
+table_m1_m2_m3 <- stargazer(list(m1, m2, m3, type='text')) 
 table_m1_m2_m3
 
 # Checking model assumptions
 autoplot(m3,which = 1:3,nrow = 1,ncol = 3) ### autoplot only works when my R memory is very low and have the data already on my pc
 ap <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) # ap stands for autoplot
-ggsave("gen/paper/output/autoplot.pdf", width = 8, height = 8) ### only plot 1 of the 3 goes into the pdf
+ggsave("gen/temp/autoplot.pdf", width = 8, height = 8) ### only plot 1 of the 3 goes into the pdf
 
 #fig1 data points should center around the horizontal axis
 #fig2 second requirement is that the residuals are approximately normally distributed
@@ -38,26 +36,44 @@ ggsave("gen/paper/output/autoplot.pdf", width = 8, height = 8) ### only plot 1 o
 
 pot_outliers <- m3 %>%
   augment() %>%
-  select(price, curfew_2100, curfew_2200, host_is_superhost, neighbourhood, leverage = .hat, cooks_dist = .cooksd) %>%
+  select(price, curfew, curfew_2200, host_is_superhost, neighbourhood, leverage = .hat, cooks_dist = .cooksd) %>%
   arrange(desc(cooks_dist)) %>%
   head()
 pot_outliers
 
 #very low values, no outliers in data
 
-# check p-values
+#Model output
+
 stargazer(m1, m2, m3,
-          title = "Figure 1: Curfew effect on Airbnb Prices",
-          dep.var.caption = "Airbnb Pricing",
-          dep.var.labels = "",
-          column.labels = c("Original Curfew", "Later Curfew"),
+          title = "Impact curfew AirBnb in Amsterdam",
+          dep.var.caption = "DV: Price of listing",
           notes.label = "Significance levels",
-          type = 'text') #update after asking Hannes about which model we need to use.
-
-stargazer(m1, m2, m3, type = 'text')
-
-# store output
-dir.create(("gen/paper"), showWarnings = FALSE)
-dir.create(("gen/paper/output"), showWarnings = FALSE)
-
-pdf("gen/paper/output/test_output.pdf")  ##### gives empty pdf but at least it creates a pdf #####
+          covariate.labels = c(
+            "Curfew",
+            "Curfew 21:00",
+            "Curfew 22:00",
+            "Host is Superhost",
+            "Bijlmer Oost",
+            "Bos en Lommer",
+            "Buitenveldert Zuidas",
+            "Centrum Oost",
+            "Centrum West",
+            "De Aker Nieuwe Sloten",
+            "De Baarsjes Oud West",
+            "De Pijp Rivierenbuurt",
+            "Gaasperdam Driemond",
+            "Geuzenveld Slotermeer",
+            "IJburg Zeeburgereiland",
+            "Noord Oost",
+            "Noord West",
+            "Oostelijk Havengebied Indische Buurt",
+            "Osdorp",
+            "Oud Noord",
+            "Oud Oost",
+            "Slotervaart",
+            "Watergraafsmeer",
+            "Westerpark",
+            "Zuid",
+            "Constant"),
+          type = 'html',out = "gen/paper/stargazer.htm")
