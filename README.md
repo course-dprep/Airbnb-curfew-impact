@@ -49,11 +49,20 @@ In our Rmarkdown file there are figures and tables shown with the results of our
 
 ## Repository overview
 
-The repository consists of an src folder and Docs folder, followed by the gitignore file and the R project file. 
+The various files and folders in this github repository will be explained in this section.
+
+-The source ("src") folder includes the data scripts that are needed to download, clean, analyse and create the figures.
+- Want to run src automatically? That's possible! Open the makefile and type "make"" in the command prompt.
+- Doing so creates two extra directories namely: "data" and "gen".
+- The gen folder has two sub-directories "temp" and "paper". 
+- In the docs file you find the Rmarkdown file, which includes figures and tables build in the analyse part.
+- The Gitignore names files that don't need to be uploaded to the dropbox
+- The .Rproj file includes the settings and options of this project
+- Finally this repository contains a Readme file which you are reading now. It contains info about the project, authors, packages etc.
 
 ## Running instructions
 
-- Install [RStudio and R](https://tilburgsciencehub.com/get/r)
+- Install [RStudio and R](https://tilburgsciencehub.com/get/r) and [make](https://tilburgsciencehub.com/building-blocks/configure-your-computer/automation-and-workflows/make/)
 - In R, install additional packages by copy/pasting and running the following lines in an R script:
 
 ```
@@ -72,7 +81,8 @@ install.packages("tidyverse")
 ```
 - The data will be downloaded from Google Drive by running the 'data_download.R' script. To access these data files, you are only required to have a Google Drive account.
 
-Explain to potential users how to run/replicate your workflow. Touch upon, if necessary, the required input data, which (secret) credentials are required (and how to obtain them), which software tools are needed to run the workflow (including links to the installation instructions), and how to run the workflow. Make use of subheaders where appropriate.
+- Run the make file first, it will generate the output of this research. 
+- After that use the Rmarkdown to generate the figures and table in a nice html document.
 
 ## Resources
 If one is looking for more information regarding other variables that might influence Airbnb pricing, it is recommended to see the following article:
