@@ -23,6 +23,21 @@ m3 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, d
 table_m1_m2_m3 <- stargazer(list(m1, m2, m3, type='text')) 
 table_m1_m2_m3
 
+m1log <- lm(log1p(price) ~ 1 + log1p(curfew) + log1p(superhost), data = Curfew_Amsterdam)
+m2log <- lm(log1p(price) ~ 1 + log1p(curfew) + log1p(curfew_2200) + log1p(superhost), data = Curfew_Amsterdam)
+m3log <-lm(log1p(price) ~ 1 + log1p(curfew) + log1p(curfew_2200) + log1p(superhost) +
+           + log1p(bijlmer_oost) + log1p(bos_en_lommer) + log1p(buitenveldert_zuidas) 
+           + log1p(centrum_oost) + log1p(centrum_west) + log1p(de_aker_nieuw_sloten) 
+           + log1p(de_baarsjes_oud_west) + log1p(de_pijp_rivierenbuurt) 
+           + log1p(gaasperdam_driemond) + log1p(geuzenveld_slotermeer)
+           + log1p(ijburg_zeeburgereiland) + log1p(noord_oost) + log1p(noord_west)
+           + log1p(oostelijk_havengebied_indische_buurt) + log1p(osdorp)
+           + log1p(oud_noord) + log1p(oud_oost) + log1p(slotervaart)
+           + log1p(watergraafsmeer) + log1p(westerpark) + log1p(zuid), data = Curfew_Amsterdam)
+
+table_log_m1_m2_m3 <- stargazer(list(m1log, m2log, m3log, type='text')) 
+table_log_m1_m2_m3
+
 # Checking model assumptions
 autoplot(m3,which = 1:3,nrow = 1,ncol = 3) 
 ap <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) # ap stands for autoplot
@@ -46,13 +61,12 @@ pot_outliers
 
 #Model output
 
-stargazer(m1, m2, m3,
+stargazer(m1log, m2log, m3log,
           title = "Impact curfew on Airbnb in Amsterdam",
           dep.var.caption = "DV: Price of listing",
           notes.label = "Significance levels",
           covariate.labels = c(
             "Curfew",
-            "Curfew 21:00",
             "Curfew 22:00",
             "Host is Superhost",
             "Bijlmer Oost",
@@ -60,7 +74,7 @@ stargazer(m1, m2, m3,
             "Buitenveldert Zuidas",
             "Centrum Oost",
             "Centrum West",
-            "De Aker Nieuwe Sloten",
+            "De Aker Nieuw Sloten",
             "De Baarsjes Oud West",
             "De Pijp Rivierenbuurt",
             "Gaasperdam Driemond",
