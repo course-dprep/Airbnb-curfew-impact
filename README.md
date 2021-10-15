@@ -49,9 +49,9 @@ In our Rmarkdown file there are figures and tables shown with the results of our
 
 ## Repository overview
 
-The various files in this github repository will be explained in this section
+The various files and folders in this github repository will be explained in this section.
 
--The source ("src")  mapincludes the data scripts that are needed to download, clean, analyse and create the figures.
+-The source ("src") folder includes the data scripts that are needed to download, clean, analyse and create the figures.
 - Want to run src automatically? That's possible! Open the makefile and type "make"" in the command prompt.
 - Doing so creates two extra directories namely: "data" and "gen".
 - The gen folder has two sub-directories "temp" and "paper". 
