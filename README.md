@@ -62,7 +62,8 @@ The various files and folders in this github repository will be explained in thi
 
 ## Running instructions
 
-- Install [RStudio and R](https://tilburgsciencehub.com/get/r) and [make](https://tilburgsciencehub.com/building-blocks/configure-your-computer/automation-and-workflows/make/)
+- Install [RStudio and R](https://tilburgsciencehub.com/get/r)
+- Install [Make](https://tilburgsciencehub.com/building-blocks/configure-your-computer/automation-and-workflows/make/)
 - In R, install additional packages by copy/pasting and running the following lines in an R script:
 
 ```
@@ -82,7 +83,7 @@ install.packages("tidyverse")
 - The data will be downloaded from Google Drive by running the 'data_download.R' script. To access these data files, you are only required to have a Google Drive account.
 
 - Run the make file first, it will generate the output of this research. 
-- After that use the Rmarkdown to generate the figures and table in a nice html document.
+- Afterwards,  to generate the figures and table in a nice html document.
 
 ## Resources
 If one is looking for more information regarding other variables that might influence Airbnb pricing, it is recommended to see the following article:

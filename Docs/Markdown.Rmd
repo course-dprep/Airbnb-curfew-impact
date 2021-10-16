@@ -4,8 +4,8 @@ author: "Tayfun Ozcan, Jeroen Maagdenberg, Sam van de Ven and Quinten de Putter"
 output:
   html_document:
     theme: journal
- 
 ---  
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
@@ -17,7 +17,7 @@ library(modelsummary)
 library(knitr)
 ```
 
-In this project we examine the impact of Corona curfews on the prices of Airbnb listings in Amsterdam. We use the data from [Inside Airbnb](http://insideairbnb.com/amsterdam/)
+In this project we examine the impact of Corona curfews on the prices of Airbnb listings in Amsterdam. We use the data from [Inside Airbnb](http://insideairbnb.com/amsterdam/).
 
 *Research question: Did the curfew affect the prices of Airbnb listings? Zooming in on Amsterdam*
 
@@ -128,5 +128,4 @@ stargazer(m1log, m2log, m3log,
 
 
 ## Conclusion
-In Conclusion if we look at Table 1, we can see that the three variables we examine have significant effects on the price of the Airbnb listing. The curfew had a negative impact on the price. One thing that stands out is that being super host during the covid-19 pandemic resulted in a negative effect on price, which is interesting. As expected neighbourhoods do have an effect, which makes sense. 
-
+In table 1 can be seen that the three variables that are examined have significant effects on the price of the Airbnb listing in Amsterdam. It can be concluded that the curfew had a negative impact on the price. One thing that stands out is that being a superhost during the Covid-19 pandemic resulted in a negative effect on price, which is interesting. As expected, neighbourhoods do have an effect.
