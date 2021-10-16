@@ -23,6 +23,14 @@ m3 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, d
 table_m1_m2_m3 <- stargazer(list(m1, m2, m3, type='text')) 
 table_m1_m2_m3
 
+#--- Log regression ---#
+m1log <- lm(log1p(price) ~ 1 + curfew + host_is_superhost, data = Curfew_Amsterdam)
+m2log <- lm(log1p(price) ~ 1 + curfew + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
+m3log <- lm(log1p(price) ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
+
+table_log_m1_m2_m3 <- stargazer(list(m1log, m2log, m3log, type='text')) 
+table_log_m1_m2_m3
+
 # Checking model assumptions
 autoplot(m3,which = 1:3,nrow = 1,ncol = 3) 
 ap <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) # ap stands for autoplot
@@ -46,13 +54,12 @@ pot_outliers
 
 #Model output
 
-stargazer(m1, m2, m3,
+stargazer(m1log, m2log, m3log,
           title = "Impact curfew on Airbnb in Amsterdam",
           dep.var.caption = "DV: Price of listing",
           notes.label = "Significance levels",
           covariate.labels = c(
             "Curfew",
-            "Curfew 21:00",
             "Curfew 22:00",
             "Host is Superhost",
             "Bijlmer Oost",

@@ -89,16 +89,16 @@ include_graphics('../gen/paper/price_superhost.pdf')
 ```{r prices, echo=FALSE, results="asis", message=FALSE, warning=FALSE}
 library(stargazer)
 Curfew_Amsterdam <- Curfew_Amsterdam <- read_csv("../gen/temp/Curfew_Amsterdam.csv")
-m1 <- lm(price ~ 1 + curfew + host_is_superhost, data = Curfew_Amsterdam)
-m2 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
-m3 <- lm(price ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
+m1log <- lm(log1p(price) ~ 1 + curfew + host_is_superhost, data = Curfew_Amsterdam)
+m2log <- lm(log1p(price) ~ 1 + curfew + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
+m3log <- lm(log1p(price) ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
 
-stargazer(m1,m2,m3, title = "Impact curfew on Airbnb in Amsterdam",
-           dep.var.caption = "DV: Price of listing",
+stargazer(m1log, m2log, m3log,
+          title = "Impact curfew on Airbnb in Amsterdam",
+          dep.var.caption = "DV: Price of listing",
           notes.label = "Significance levels",
           covariate.labels = c(
             "Curfew",
-            "Curfew 21:00",
             "Curfew 22:00",
             "Host is Superhost",
             "Bijlmer Oost",

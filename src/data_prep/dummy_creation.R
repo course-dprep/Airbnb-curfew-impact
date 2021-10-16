@@ -17,6 +17,7 @@ datacompl$curfew_2100 <- ifelse( datacompl$date > as.Date("2021/01/23", format =
 datacompl$curfew_2200 <- ifelse( datacompl$date > as.Date("2021/03/31", format = "%Y/%m/%d") &
                                    datacompl$date < as.Date("2021/04/28", format = "%Y/%m/%d"), 1, 0)   
 
+#--- Rename dataset and remove dataset with old name ---#
 Curfew_Amsterdam <- datacompl
 rm(datacompl)
 
