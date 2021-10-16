@@ -26,7 +26,7 @@ table_m1_m2_m3
 #--- Log regression ---#
 m1log <- lm(log1p(price) ~ 1 + curfew + host_is_superhost, data = Curfew_Amsterdam)
 m2log <- lm(log1p(price) ~ 1 + curfew + curfew_2200 + host_is_superhost, data = Curfew_Amsterdam)
-m3log <-lm(log1p(price) ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
+m3log <- lm(log1p(price) ~ 1 + curfew + curfew_2200 + host_is_superhost + neighbourhood, data = Curfew_Amsterdam)
 
 table_log_m1_m2_m3 <- stargazer(list(m1log, m2log, m3log, type='text')) 
 table_log_m1_m2_m3
@@ -67,7 +67,7 @@ stargazer(m1log, m2log, m3log,
             "Buitenveldert Zuidas",
             "Centrum Oost",
             "Centrum West",
-            "De Aker Nieuw Sloten",
+            "De Aker Nieuwe Sloten",
             "De Baarsjes Oud West",
             "De Pijp Rivierenbuurt",
             "Gaasperdam Driemond",
