@@ -81,10 +81,10 @@ install.packages("broom")
 install.packages("foreign")
 install.packages("tidyverse")
 ```
-- The data will be downloaded from Google Drive by running the 'data_download.R' script. To access these data files, you are only required to have a Google Drive account.
+- The data for this research will be downloaded from Google Drive. To access these data files, you are only required to have a Google Drive account.
 
-- Run the make file first, it will generate the output of this research. 
-- Afterwards, run the Markdown in the docs folder to generate the figures and table in a nice html document.
+- Run the 'makefile' first, this will generate the output of this research. 
+- Afterwards, run 'Markdown.Rmd' in the 'docs' folder to generate an html document which contains figures and a table derived from the data. 
 
 ## Resources
 If one is looking for more information regarding other variables that might influence Airbnb pricing, it is recommended to see the following article:
