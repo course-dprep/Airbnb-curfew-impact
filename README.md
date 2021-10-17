@@ -40,12 +40,13 @@ The model of this research:
 - IV: ‘curfew’
 - MOD: ‘host_is_superhost’ and ‘neighbourhood_cleansed’
 
-### Results
-In our Rmarkdown file there are figures and tables shown with the results of our study. The results are as follows:
-- It is clear that the curfew had a negative effect on the Airbnb Listing price.
-- The effect of the later curfew (22:00) was less dramatic than that of the original curfew (21:00). 
-- During the Covid-19 crisis, Superhost status had a significant negative effect on the Airbnb listing price.
-- There are significant differences between neighbourhoods, which is to be expected. 
+### Conclusion
+In the Rmarkdown file the results of this research are discussed. Here are some final concluding remarks:
+- It is clear that the curfew had a negative effect on the Airbnb listing price.
+- The introduction of the later curfew (22:00) did offset this by a substantial amount.
+- During the Covid-19 crisis, super host status had a significant negative effect on the Airbnb listing price.
+- There are significant differences between neighbourhoods.
+
 
 ## Repository overview
 
@@ -83,7 +84,7 @@ install.packages("tidyverse")
 - The data will be downloaded from Google Drive by running the 'data_download.R' script. To access these data files, you are only required to have a Google Drive account.
 
 - Run the make file first, it will generate the output of this research. 
-- Afterwards,  to generate the figures and table in a nice html document.
+- Afterwards, run the Markdown in the docs folder to generate the figures and table in a nice html document.
 
 ## Resources
 If one is looking for more information regarding other variables that might influence Airbnb pricing, it is recommended to see the following article:

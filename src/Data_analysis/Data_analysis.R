@@ -34,7 +34,6 @@ table_log_m1_m2_m3
 # Checking model assumptions
 autoplot(m3,which = 1:3,nrow = 1,ncol = 3) 
 ap <- autoplot(m3,which = 1:3,nrow = 1,ncol = 3) # ap stands for autoplot
-ggsave("gen/temp/autoplot.pdf", width = 8, height = 8) ### only plot 1 of the 3 goes into the pdf
 
 #fig1 data points should center around the horizontal axis
 #fig2 second requirement is that the residuals are approximately normally distributed
