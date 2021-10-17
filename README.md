@@ -80,6 +80,7 @@ install.packages("ggfortify")
 install.packages("broom")
 install.packages("foreign")
 install.packages("tidyverse")
+install.packages("knitr")
 ```
 - The data for this research will be downloaded from Google Drive. To access these data files, you are only required to have a Google Drive account.
 
