@@ -44,8 +44,8 @@ The model of this research:
 In the Rmarkdown file the results of this research are discussed. Here are some final concluding remarks:
 - It is clear that the curfew had a negative effect on the Airbnb listing price.
 - The introduction of the later curfew (22:00) did offset this by a substantial amount.
-- During the Covid-19 crisis, super host status had a significant negative effect on the Airbnb listing price.
-- There are significant differences between neighbourhoods.
+- During the Covid-19 crisis, superhost status had a significant negative effect on the Airbnb listing price.
+- There are significant differences in prices between neighbourhoods.
 
 
 ## Repository overview
