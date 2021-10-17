@@ -129,11 +129,11 @@ stargazer(m1log, m2log, m3log,
 
 
 ## Results
-Looking at figure 1, a striking result is that the listing prices in Amsterdam were at their lowest during the curfew (January 2021 – April 2021) for the period of this research (August 2020 – August 2021). Also, towards the end of the curfew, the prices slowly starting to rise. 
+Looking at figure 1, a remarkable result is that the listing prices in Amsterdam were at their lowest during the curfew months (January 2021 – April 2021) for the period of this research (August 2020 – August 2021). In addition, towards the end of the curfew, the prices slowly started to increase. 
 
-Another interesting statistic is that the listings with a superhost have a price lower than listing without a superhost (figure 2). However, a much stronger growth of the prices of listings with superhost than listings without superhost was detected in figure 2. Because of this the prices are almost the same. Also, in table 1 it can be read that being a superhost is not very beneficial, it leads to listing prices being 8.8% lower compared to listings from hosts that are not superhosts during the Covid -19 pandemic. 
+Another interesting result is that the listings with a superhost have a price lower than listing without a superhost (figure 2). However, a larger increase in the prices of listings with a superhost than listings without a superhost was noticed in figure 2. Because of this, the prices are almost the same. Also, in table 1 it can be read that being a superhost is not very beneficial, it leads to listing prices being 8.8% lower compared to listings from hosts that are not superhosts during the Covid-19 pandemic. 
 
-Reading table 1 it becomes clear that the curfew have a significant effect on the Airbnb listing prices in Amsterdam. Because the dependent variable (price) is written in log it can be concluded that introducing the curfew resulted in a -1.5% price drop for the listings in Amsterdam. The introduction of the later curfew offsets this by 1%.
+Reading table 1 it becomes clear that the curfew has a significant effect on the Airbnb listing prices in Amsterdam. Because the dependent variable (price) is written as a logarithmic function, it can be concluded that introducing the curfew resulted in a -1.5% price drop for the listings in Amsterdam. The introduction of the later curfew offsets this by 1%.
 
 The impact of each neighbourhood can be found in table 1. Here it can be read that the effect of almost all the neighborhood is greater than the curfew.
 
