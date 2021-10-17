@@ -4,6 +4,7 @@ author: "Tayfun Ozcan, Jeroen Maagdenberg, Sam van de Ven and Quinten de Putter"
 output:
   html_document:
     theme: journal
+  pdf_document: default
 ---  
 
 ```{r setup, include=FALSE}
@@ -74,13 +75,13 @@ summary(Curfew_Amsterdam)
 ### Figure 1 - Price development during curfew regulations
 
 
-```{r, echo = FALSE, fig.align='center', out.height='40%'}
-knitr::include_graphics(path = '../gen/paper/avgprice.pdf',)
+```{r, echo = FALSE, fig.align='center', out.height='500px',out.width='500px'}
+knitr::include_graphics(path = '../gen/paper/avgprice.pdf')
 ```
 
-### Figure 2 - Price development during  if host is superhost or not 
+### Figure 2 - Price development during curfew whether host is superhost or not 
 
-```{r, echo = FALSE, fig.align = 'center'}
+```{r, echo = FALSE, fig.align = 'center', out.height='500px',out.width='500px'}
 include_graphics('../gen/paper/price_superhost.pdf')
 ```
 
@@ -129,5 +130,6 @@ stargazer(m1log, m2log, m3log,
 
 ## Results
 Reading Table 1 it becomes clear that the curfew have a significant effect on the Airbnb listing prices in Amsterdam. Because the dependent variable (price) is written in log it can be concluded that introducing the curfew resulted in a -1.5% price drop for the listings in Amsterdam. The introduction of the later curfew offsets this by 1%. 
+
 Being a superhost is not very beneficial, it leads to listing prices being 8.8% lower compared to listings from hosts that are not superhosts during the Covid -19 pandemic. 
 It is also clear that neighbourhoods have a big impact on listing prices. 

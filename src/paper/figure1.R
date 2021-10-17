@@ -20,7 +20,6 @@ Curfew_Amsterdam_plots %>%
        title = "Figure 1: Average Airbnb Listing Price in Amsterdam",
        subtitle = "From August 2020 till August 2021") +
   theme_bw()
-# change x axis dates to month written --> Aug 2020, Sep 2020
 ggsave("gen/paper/avgprice.pdf")
 
 

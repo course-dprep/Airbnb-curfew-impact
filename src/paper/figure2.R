@@ -21,6 +21,6 @@ Curfew_Amsterdam_plots %>%
        title = "Figure 2: Airbnb Listing Prices for Super Host and Normal host status",
        subtitle = "From August 2020 till August 2021",) +
   theme_dark() +
-  scale_color_manual(values = c("green", "orange")) #change title here but ran into an error message 
+  scale_color_manual(values = c("green", "orange")) 
 ggsave("gen/paper/price_superhost.pdf")
 

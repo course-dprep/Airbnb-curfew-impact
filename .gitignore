@@ -7,7 +7,7 @@
 .DS_Store
 **.htm
 **.html
-.txt
+**.txt
 gen/temp/stargazer.htm
 .log
 .tex
