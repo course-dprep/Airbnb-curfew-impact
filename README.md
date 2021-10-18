@@ -23,7 +23,7 @@ For this research project, we zoom in on Amsterdam, a city that is [heavily reli
 
 ## Method and Results
 ### The research method
-The research method that is used in this research project is a multiple regression analysis. This type of analysis allows us to check the effect multiple variables have on the Airbnb listing prices in Amsterdam during the Covid-19 period. In our complete model curfew effects, Superhost status and neighbourhood are analysed. By putting these variables in a linear regression model we can conclude if these variables have a significant effect on the  price of the Airbnb listing. The output of this model allows us to answer our research question.  
+The research method that is used in this research project is multiple regression analysis. This type of analysis allows us to check the effect multiple variables have on the Airbnb listing prices in Amsterdam during the Covid-19 period. In our complete model curfew effects, Superhost status and neighbourhood are analysed. By putting these variables in a linear regression model we can conclude if these variables have a significant effect on the price of the Airbnb listing. The output of this model allows us to answer our research question.  
 
 ### Data collection and preparation
 The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research:
@@ -41,7 +41,7 @@ The model of this research:
 - MOD: ‘host_is_superhost’ and ‘neighbourhood_cleansed’
 
 ### Conclusion
-In the Rmarkdown file the results of this research are discussed. Here are some final concluding remarks:
+In the Rmarkdown file, the results of this research are discussed. Here are some final concluding remarks:
 - It is clear that the curfew had a negative effect on the Airbnb listing price.
 - The introduction of the later curfew (22:00) did offset this by a substantial amount.
 - During the Covid-19 crisis, superhost status had a significant negative effect on the Airbnb listing price.
@@ -50,7 +50,7 @@ In the Rmarkdown file the results of this research are discussed. Here are some 
 
 ## Repository overview
 
-The various files and folders in this github repository will be explained in this section.
+The various files and folders in this Github repository will be explained in this section.
 
 - The source ("src") folder includes the data scripts that are needed to download, clean, analyse and create the figures.
 - Want to run "src" automatically? That's possible! Open the makefile and type "make" in the command prompt.
@@ -59,7 +59,7 @@ The various files and folders in this github repository will be explained in thi
 - In the "docs" file you find the Rmarkdown file, which includes figures and tables build in the analyse part.
 - The ".Gitignore" file lists files and filetypes that don't need to be uploaded to GitHub. 
 - The ".Rproj" file includes the settings and options of this project.
-- Finally this repository contains a "Readme" file which you are reading now. It contains info about the project, authors, packages etc.
+- Finally, this repository contains a "Readme" file which you are reading now. It contains info about the project, authors, packages etc.
 
 ## Running instructions
 
@@ -85,11 +85,11 @@ install.packages("knitr")
 - The data for this research will be downloaded from Google Drive. To access these data files, you are only required to have a Google Drive account.
 
 - Run the 'makefile' first, this will generate the output of this research. 
-- Afterwards, run 'Markdown.Rmd' in the 'docs' folder to generate an html document which contains figures and a table derived from the data. 
+- Afterwards, run 'Markdown.Rmd' in the 'docs' folder to generate an html document taht contains figures and a table derived from the data. 
 
 ## Resources
 If one is looking for more information regarding other variables that might influence Airbnb pricing, it is recommended to see the following article:
-- Chattopadhyay, M., & Mitra, S. (2019). Do airbnb host listing attributes influence room pricing homogenously?. International Journal Of Hospitality Management, 81, 54-64. doi: [10.1016/j.ijhm.2019.03.008](https://www-sciencedirect-com.tilburguniversity.idm.oclc.org/science/article/pii/S0278431918308491)
+- Chattopadhyay, M., & Mitra, S. (2019). Do Airbnb host listing attributes influence room pricing homogenously?. International Journal Of Hospitality Management, 81, 54-64. doi: [10.1016/j.ijhm.2019.03.008](https://www-sciencedirect-com.tilburguniversity.idm.oclc.org/science/article/pii/S0278431918308491)
 
 This article provides a solid overview of past research done towards the determinants of Airbnb pricing and the authors investigate a couple more listing variables that might affect the Airbnb listing price. 
 
