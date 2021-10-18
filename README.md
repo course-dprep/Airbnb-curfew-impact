@@ -23,7 +23,7 @@ For this research project, we zoom in on Amsterdam, a city that is [heavily reli
 
 ## Method and Results
 ### The research method
-The research method that is used in this research project is multiple regression analysis. This type of analysis allows us to check the effect multiple variables have on the Airbnb listing prices in Amsterdam during the Covid-19 period. In our complete model curfew effects, Superhost status and neighbourhood are analysed. By putting these variables in a linear regression model we can conclude if these variables have a significant effect on the price of the Airbnb listing. The output of this model allows us to answer our research question.  
+The research method that is used in this research project is a multiple regression analysis. This type of analysis allows us to check the effect multiple variables have on the Airbnb listing prices in Amsterdam during the Covid-19 period. In our complete model curfew effects, Superhost status and neighbourhood are analysed. By putting these variables in a linear regression model we can conclude if these variables have a significant effect on the price of the Airbnb listing. The output of this model allows us to answer our research question.  
 
 ### Data collection and preparation
 The data used for this research was gathered from the website [Inside Airbnb](http://insideairbnb.com/get-the-data.html). The effect of the curfew in Amsterdam will be investigated on the dates from August  2020 to August 2021. Therefore, the datasets including these time samples for Amsterdam are available for download in the data_download.R file. After downloading the data, it will be prepared for the research:
@@ -85,7 +85,7 @@ install.packages("knitr")
 - The data for this research will be downloaded from Google Drive. To access these data files, you are only required to have a Google Drive account.
 
 - Run the 'makefile' first, this will generate the output of this research. 
-- Afterwards, run 'Markdown.Rmd' in the 'docs' folder to generate an html document taht contains figures and a table derived from the data. 
+- Afterwards, run 'Markdown.Rmd' in the 'docs' folder to generate an html document that contains figures and a table derived from the data. 
 
 ## Resources
 If one is looking for more information regarding other variables that might influence Airbnb pricing, it is recommended to see the following article:
