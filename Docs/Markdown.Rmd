@@ -18,20 +18,20 @@ library(modelsummary)
 library(knitr)
 ```
 
-In this project we examine the impact of Corona curfews on the prices of Airbnb listings in Amsterdam. We use the data from [Inside Airbnb](http://insideairbnb.com/amsterdam/).
+In this project, we examine the impact of Corona curfews on the prices of Airbnb listings in Amsterdam. We use the data from [Inside Airbnb](http://insideairbnb.com/amsterdam/).
 
 *Research question: Did the curfew affect the prices of Airbnb listings? Zooming in on Amsterdam*
 
 ### The following things are examined in this project:
 
-  Determining the effect of the curfew on the income of landlords.  
-  Effects of the neighbourhood on the Airbnb listing price.   
-  Effects of the host status on the Airbnb listing price.  
+  - Determining the effect of the curfew on the income of landlords.  
+  - Effects of the neighbourhood on the Airbnb listing price.   
+  - Effects of the host status on the Airbnb listing price.  
 
 ## Data
 
 ### Data Collection
-First we downloaded the file from [Inside Airbnb](http://insideairbnb.com/amsterdam/) from the period August 2020 till August 2021. The data is downloaded from the Airbnb website and is stored in a Google Drive. 
+First, we downloaded the file from [Inside Airbnb](http://insideairbnb.com/amsterdam/) from the period August 2020 till August 2021. The data is downloaded from the Airbnb website and is stored in Google Drive. 
 
 ### Data Processing
 
@@ -40,7 +40,7 @@ changed variable types and added dummy variables.
 
 ### Variables
 
-The dataset we use for the analysis is "gen/temp/Curfew_Amsterdam.csv" consist of the following variables:
+The dataset we use for the analysis is "gen/temp/Curfew_Amsterdam.csv" which consist of the following variables:
 
 #### ID
 Numeric Variable, every listing has it's own ID 
@@ -58,7 +58,7 @@ Logical Variable, TRUE if host is registered as super host
 Factor Variable, the neighbourhood in which the listing is located
 
 #### Price
-Numeric Variable, price of listing per night in american dollar
+Numeric Variable, price of listing per night in American dollar
 
 #### Dummy Variables: Curfew, Curfew 21:00, Curfew:22:00
 Dummy Variable, 1 or a 0 depending on the government regulation that month.
@@ -135,5 +135,5 @@ Another interesting result is that the listings with a superhost have a price lo
 
 Reading table 1 it becomes clear that the curfew has a significant effect on the Airbnb listing prices in Amsterdam. Because the dependent variable (price) is written as a logarithmic function, it can be concluded that introducing the curfew resulted in a -1.5% price drop for the listings in Amsterdam. The introduction of the later curfew offsets this by 1%.
 
-The impact of each neighbourhood can be found in table 1. Here it can be read that the effect of almost all the neighborhood is greater than the curfew.
+The impact of each neighbourhood can be found in table 1. Here it can be read that the effect of almost all the neighbourhood is greater than the curfew.
 
